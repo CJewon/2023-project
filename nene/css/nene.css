@@ -1,0 +1,48 @@
+body {
+  position: relative;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+header {
+  height: 112px;
+  /* position: fixed; */
+}
+
+.header_con {
+  display: flex;
+  height: 100%;
+  padding: 0 352px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header_menu_ul {
+  display: flex;
+  gap: 56px;
+}
+
+.login_ul {
+  display: flex;
+}
+
+.login_list > a {
+  color: #231f20;
+}
+
+.menu_con {
+  padding: 0 352px;
+}
+
+.new_menu,
+.popular_menu,
+.recommended_menu {
+  background-color: #f8ba03;
+}
