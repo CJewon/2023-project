@@ -52,7 +52,11 @@ header {
   padding-top: 112px;
 }
 
+.food_menu_con figure img {
+  width: 761px;
+  height: 615px;
 
+}
 
 .new_menu,
 .popular_menu,
@@ -60,4 +64,21 @@ header {
   width: 100vw;
   height: 100vh;
   background-color: #f8ba03;
+}
+
+
+
+.menu_slide_con {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+
+.menu_slide_cir {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ffffff;
+  background-color: #ffffff;
+  border-radius: 50%;
 }
