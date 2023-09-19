@@ -15,7 +15,7 @@ a {
 
 header {
   height: 112px;
-  /* position: fixed; */
+  position: fixed;
 }
 
 .header_con {
@@ -24,6 +24,7 @@ header {
   padding: 0 352px;
   justify-content: space-between;
   align-items: center;
+  gap: 128px;
 }
 
 .header_menu_ul {
@@ -44,8 +45,19 @@ header {
   padding: 0 352px;
 }
 
+.food_menu_con {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 112px;
+}
+
+
+
 .new_menu,
 .popular_menu,
 .recommended_menu {
+  width: 100vw;
+  height: 100vh;
   background-color: #f8ba03;
 }
