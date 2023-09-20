@@ -1,8 +1,10 @@
-body {
-  font-family: 'Noto Sans KR', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap");
+
+html {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 500;
 }
-
-
 
 li {
   list-style: none;
@@ -13,15 +15,29 @@ a {
   color: black;
 }
 
+.acc-hide-text {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(0 0 99.9% 99.9%);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  border: 0;
+}
+
 header {
   height: 112px;
   position: fixed;
+  z-index: 1;
+  width: 100%;
 }
 
 .header_con {
   display: flex;
   height: 100%;
-  padding: 0 352px;
+  max-width: 1216px;
+  margin: 0 auto;
   justify-content: space-between;
   align-items: center;
   gap: 128px;
@@ -32,6 +48,12 @@ header {
   gap: 56px;
 }
 
+.header_menu_list > a {
+  color: #ffffff;
+  font-size: 16px;
+  -webkit-text-stroke: 1px #231f20;
+}
+
 .login_ul {
   display: flex;
   gap: 24px;
@@ -39,23 +61,7 @@ header {
 
 .login_list > a {
   color: #231f20;
-}
-
-.menu_con {
-  padding: 0 352px;
-}
-
-.food_menu_con {
-  display:flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 112px;
-}
-
-.food_menu_con figure img {
-  width: 761px;
-  height: 615px;
-
+  font-size: 20px;
 }
 
 .new_menu,
@@ -64,16 +70,30 @@ header {
   width: 100vw;
   height: 100vh;
   background-color: #f8ba03;
+  position: relative;
 }
 
+.menu_con {
+  max-width: 1216px;
+  margin: 0 auto;
+}
 
+.food_menu_con {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding-top: 112px;
+}
 
 .menu_slide_con {
   display: flex;
-  justify-content: space-between;
-  align-items: end;
+  padding: 0 352px;
+  position: absolute;
+  bottom: 5%;
+  left: 10%;
+  gap: 256px;
 }
-
 
 .menu_slide_cir {
   width: 40px;
@@ -81,4 +101,46 @@ header {
   border: 1px solid #ffffff;
   background-color: #ffffff;
   border-radius: 50%;
+}
+
+.nene_char_con {
+  position: absolute;
+  bottom: 100%;
+}
+
+.menu_title_con {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  gap: 10px;
+}
+
+.menu_title_con > :nth-child(2) {
+  font-size: 40px;
+}
+
+.menu_style_ul {
+  display: flex;
+  gap: 16px;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 56px;
+}
+
+.menu_style_li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  border: 1px solid #424141;
+  color: #231f20;
+  font-size: 16px;
+  border-radius: 8px;
+  font-weight: 700;
 }
