@@ -86,6 +86,9 @@ header {
   padding-top: 112px;
 }
 
+.food_menu_con > figure {
+}
+
 .menu_slide_con {
   display: flex;
   padding: 0 352px;
@@ -112,7 +115,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: relative;
+  position: absolute;
   gap: 10px;
 }
 
