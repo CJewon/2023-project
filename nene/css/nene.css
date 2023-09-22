@@ -30,7 +30,7 @@ header {
   height: 112px;
   position: fixed;
   z-index: 1;
-  width: 100%;
+  width: 100vw;
 }
 
 .header_con {
@@ -150,7 +150,6 @@ h1 {
   border-radius: 8px;
   font-weight: 700;
 }
-
 .location_store_sec {
   width: 100vw;
   height: 100vh;
@@ -162,7 +161,7 @@ h1 {
   justify-content: center;
   align-items: center;
   padding-top: 200px;
-  gap: 64px;
+  gap: 96px;
 
 }
 
@@ -183,12 +182,64 @@ h2 {
   background-color: #f8ba03;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .nene_store_img > figure {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: auto;
 }
 
+.nene_store_img > figure > p {
+  position: absolute;
+  top: 70%;
+  left: 70%;
+}
 
+.location_store_li > a {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nene_gallery {
+  width: 100vw;
+  height: 1006px;
+}
+
+.nene_gallery_con {
+  max-width: 1216px;
+  margin: 0 auto;
+  padding-top: 151px;
+  padding-left: 103px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.nene_title {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nene_title > h2 {
+  font-size: 48px;
+  color: #4F4C4C;
+  font-weight: 700;
+}
+
+.sns_design_con {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sns_design_facebook,
+.sns_design_instagram {
+  width: 392px;
+  height: 685px;
+}
 
