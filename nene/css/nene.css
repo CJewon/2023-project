@@ -211,12 +211,11 @@ h2 {
 
 .nene_gallery_con {
   max-width: 1216px;
-  margin: 0 auto;
-  padding-top: 151px;
-  padding-left: 103px;
   display: flex;
   flex-direction: column;
   gap: 50px;
+  padding: 151px 352px;
+  
 }
 
 .nene_title {
@@ -241,5 +240,23 @@ h2 {
 .sns_design_instagram {
   width: 392px;
   height: 685px;
+  background-color: #D9D9D9;
+  border-radius: 18px;
+  position: relative;
 }
+
+.facebook_li,
+.instagram_li {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  
+}
+
+.facebook_icon_con,
+.instagram_icon_con {
+  display: flex;
+  gap: 20px;
+}
+
 
