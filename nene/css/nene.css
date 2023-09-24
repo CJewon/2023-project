@@ -235,7 +235,6 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* max-width: 1010px; */
 }
 
 .sns_design_facebook,
@@ -250,9 +249,7 @@ h2 {
 .facebook_li,
 .instagram_li {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  
+  flex-direction: column;  
 }
 
 .facebook_icon_con,
@@ -260,5 +257,70 @@ h2 {
   display: flex;
   gap: 20px;
 }
+
+.facebook_contents_con,
+.instrgram_contents_con {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px;
+}
+
+.text_con {
+  width: 360px;
+  background-color: #A5A5A5;
+  line-height: 1.5;
+}
+
+.facebook_contents_con > figure:last-child,
+.instrgram_contents_con > figure:last-child {
+  position: absolute;
+  left: 62%;
+  top: 94%;
+}
+
+
+
+.footer_con {
+  height: 105px;
+  background-color: #2B2B2B;
+  padding: 0 352px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer_ul {
+  display: flex;
+  gap: 80px;
+}
+
+.footer_li > a {
+  font-size: 16px;
+  color: #DBD8D8;
+  font-weight: 300;
+}
+
+.company_explain_con {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #484747;
+  padding: 0 352px;
+  height: 255px;
+}
+
+.company_information {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #979595;
+  font-weight: 300;
+}
+
+.another_information {
+  display: flex;
+}
+
+
 
 
