@@ -210,11 +210,12 @@ h2 {
 }
 
 .nene_gallery_con {
-  max-width: 1216px;
+  max-width: 1010px;
   display: flex;
   flex-direction: column;
   gap: 50px;
-  padding: 151px 352px;
+  padding-top: 151px;
+  margin: 0 auto;
   
 }
 
@@ -234,6 +235,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* max-width: 1010px; */
 }
 
 .sns_design_facebook,
