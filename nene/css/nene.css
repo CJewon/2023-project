@@ -94,11 +94,11 @@ header {
 
 .menu_slide_con {
   display: flex;
-  padding: 0 352px;
   position: absolute;
+  left: 50%;
   bottom: 4%;
-  left: 10%;
   gap: 256px;
+  transform: translateX(-50%);
 }
 
 .menu_slide_cir {
