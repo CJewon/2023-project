@@ -48,12 +48,6 @@ header {
   gap: 56px;
 }
 
-.header_menu_list > a {
-  color: #ffffff;
-  font-size: 16px;
-  -webkit-text-stroke: 1px #231f20;
-}
-
 .login_ul {
   display: flex;
   gap: 24px;
@@ -87,26 +81,71 @@ header {
   position: relative;
   padding-top: 112px;
 }
+.button_con {
+  width: fit-content;
+  padding: 10px 40px;
+  font-size: 24px;
+  color: white;
+  background-color: #231f20;
+  border-radius: 98px;
+}
+
+.button_con > p {
+  width: fit-content;
+  margin: 0 auto;
+}
 
 .food_menu_con > figure {
   position: absolute;
 }
 
 .menu_slide_con {
+}
+.menu-slide-index-container {
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
   display: flex;
+  height: 42px;
+}
+
+.index-dots {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.index-dots p {
+  /* width: 100%; */
   position: absolute;
+  word-break: keep-all;
+  top: 50%;
   left: 50%;
-  bottom: 4%;
-  gap: 256px;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
 }
 
 .menu_slide_cir {
+  position: relative;
   width: 40px;
   height: 40px;
-  border: 1px solid #ffffff;
   background-color: #ffffff;
-  border-radius: 50%;
+  border-radius: 8px;
+  transition-duration: 1s;
+  transition-property: background-color, height, width;
+  transition-delay: 1s, 0s, 1s;
+}
+
+.index-dots.active p {
+}
+.index-dots.active .menu_slide_cir {
+  width: 120px;
+  height: 2px;
+  background-color: #ff0000;
+  transition-duration: 1s;
+  transition-property: width, background-color, height;
+  transition-delay: 0s, 0s, 1s;
 }
 
 .nene_char_con {
@@ -118,12 +157,20 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* position: absolute; */
   gap: 10px;
 }
 
+.menu_title_con > p {
+  width: fit-content;
+  line-height: 1.2;
+}
 .menu_title_con > :nth-child(2) {
   font-size: 40px;
+}
+
+.new_menu h1,
+.recommended_menu h1 {
+  color: #ea2328;
 }
 
 .menu_style_ul {
@@ -149,6 +196,8 @@ h1 {
   font-size: 16px;
   border-radius: 8px;
   font-weight: 700;
+  width: fit-content;
+  /* flex-shrink: 0; */
 }
 .location_store_sec {
   width: 100%;
