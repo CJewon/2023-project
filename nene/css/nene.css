@@ -99,8 +99,7 @@ header {
   position: absolute;
 }
 
-.menu_slide_con {
-}
+
 .menu-slide-index-container {
   align-items: center;
   justify-content: space-around;
@@ -149,8 +148,13 @@ header {
 }
 
 .nene_char_con {
-  position: absolute;
-  bottom: 100%;
+  /* max-width: fit-content; */
+  margin: 0 auto;
+}
+
+.nene_char_con > img{
+  /* transform: translateX(100%); */
+  
 }
 
 .menu_title_con {
