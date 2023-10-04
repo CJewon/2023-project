@@ -99,13 +99,13 @@ header {
   position: absolute;
 }
 
-
 .menu-slide-index-container {
-  align-items: center;
-  justify-content: space-around;
-  margin: 0 auto;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
   height: 42px;
+  max-width: 1216px;
 }
 
 .index-dots {
@@ -148,13 +148,12 @@ header {
 }
 
 .nene_char_con {
-  /* max-width: fit-content; */
+  max-width: 1216px;
   margin: 0 auto;
 }
 
-.nene_char_con > img{
-  /* transform: translateX(100%); */
-  
+.nene_char_con > img {
+  transform: translateX(25px);
 }
 
 .menu_title_con {
