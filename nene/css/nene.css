@@ -100,25 +100,26 @@ header {
 }
 
 .menu-slide-index-container {
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
   height: 42px;
   max-width: 1216px;
+  position: relative;
 }
 
 .index-dots {
   overflow: hidden;
-  position: relative;
+  position: absolute;
   height: 100%;
   display: flex;
   align-items: flex-end;
-
+  width: fit-content;
+  transform: translateX(-50%);
 }
 
 .index-dots p {
-  /* width: 100%; */
   position: absolute;
   word-break: keep-all;
   top: 50%;
@@ -154,7 +155,9 @@ header {
 }
 
 .nene_char_con > img {
-  transform: translateX(25px);
+  position: relative;
+  transition: 1s;
+  transform: translateX(-50%);
 }
 
 .menu_title_con {
@@ -369,7 +372,3 @@ h2 {
 .another_information {
   display: flex;
 }
-
-
-
-
