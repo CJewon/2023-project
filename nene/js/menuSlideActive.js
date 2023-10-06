@@ -15,25 +15,48 @@
 // index값이 바뀔때마다 결과값이 바뀌게 된다.
 
 // inedxArray[0]에서 첫번째 자식에게 left : 0 , 두번째 자식에게 left : 50% , 세번째 자식에게 left : 100% 를 줘야한다
-const indexContainer = document.getElementsByClassName('menu-slide-index-container'); 
-const indexDots = document.getElementsByClassName('index-dots'); // 10
-const indexArray = [];
-const indexElement = indexDots.length;
-
-for (let i = 0; i < indexContainer.length; i++) {
-    const childCount = indexContainer[i].childElementCount;
-    indexArray.push(childCount);
-  }
 
 
+const indexContainer = document.querySelectorAll('.menu-slide-index-container'); 
+const indexDots = document.querySelectorAll('.index-dots'); // 10
+const indexArray = []; // 2차원 배열 생성
+
+indexContainer.forEach(function(container) {
+    const row = []; // 행
+    indexDots.forEach(function(dots) {
+        if(container.contains(dots)) {
+            row.push(dots) // 각 행에 대한 열에 push
+        }
+    })
+    indexArray.push(row);
+})
+
+indexArray.forEach(function(row, rowIndex) {
+    const rowLength = row.length;
+    row.forEach(function(dot, columnIndex) {
+      const leftValue = (columnIndex / (rowLength - 1) * 100) + '%';
+      dot.style.left = leftValue;
+    });
+  });
 
 
 
-for(let i = 0; i < indexArray.length; i++) {
-    for(let j = 0 ; j < indexArray[0]; j++) {
-        indexDots.style.left = (j / (indexArray[0] - 1) * 100);
-    } 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+//     for(let j = 0 ; j < indexArray[0]; j++) {
+//         indexDots.style.left = (j / (indexArray[0] - 1) * 100);
+//     } 
+
 
 
 
