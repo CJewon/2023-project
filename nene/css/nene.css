@@ -33,6 +33,10 @@ header {
   width: 100%;
 }
 
+header.active {
+  display: none;
+}
+
 .header_con {
   display: flex;
   height: 100%;
@@ -334,7 +338,7 @@ h2 {
 }
 
 .footer_con {
-  height: 105px;
+  /* height: 105px; */
   background-color: #2b2b2b;
   padding: 0 352px;
   display: flex;
@@ -358,8 +362,8 @@ h2 {
   justify-content: space-between;
   align-items: center;
   background-color: #484747;
-  padding: 0 352px;
-  height: 255px;
+  padding: 20px 352px;
+  /* height: 255px; */
 }
 
 .company_information {
