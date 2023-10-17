@@ -34,7 +34,7 @@ header {
 }
 
 header.active {
-  display: none;
+  transform: translateY(-100%);
 }
 
 .header_con {
@@ -265,7 +265,7 @@ h2 {
 
 .nene_gallery {
   width: 100%;
-  height: 1006px;
+  height: 100vh;
 }
 
 .nene_gallery_con {
