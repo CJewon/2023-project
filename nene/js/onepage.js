@@ -15,12 +15,18 @@ const sections = document.querySelectorAll('body>section');
 const header = document.querySelector('header');
 const footer = document.querySelector('footer');
 let index=0; // 현재페이지
+let moveState = false;
 // console.log(header);
 
 
 window.addEventListener('mousewheel', (e) => {
-    // console.log(footer.clientHeight)
+    // addEventListener가 실행이 될때, moveState가 true가 되고, true가 되면서 스크롤이 시작이 된다. 근데 이것을 setTimeOut으로 통제를 한다.
     
+    if(!moveState) {
+        setTimeout(() => {
+            
+        }, 0.5);
+    }
 
     // console.log(sections.length);
     if(window.scrollY < (sections.length)*window.innerHeight){   
