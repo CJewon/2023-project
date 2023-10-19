@@ -85,6 +85,18 @@ header.active {
   position: relative;
   padding-top: 112px;
 }
+
+.popular_menu_con {
+  gap: 64px;
+}
+
+.new_menu_con > figure > img,
+.popular_menu_con > figure > img,
+.recommended_menu_con > figure > img{
+  width: 670px;
+  height: 100%;
+}
+
 .button_con {
   width: fit-content;
   padding: 10px 40px;
@@ -142,8 +154,7 @@ header.active {
   transition-delay: 1s, 0s, 1s;
 }
 
-.index-dots.active p {
-}
+
 .index-dots.active .menu_slide_cir {
   width: 120px;
   height: 2px;
@@ -178,6 +189,8 @@ header.active {
 .menu_title_con > :nth-child(2) {
   font-size: 40px;
 }
+
+
 
 .new_menu h1,
 .recommended_menu h1 {
@@ -272,8 +285,8 @@ h2 {
   max-width: 1010px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
-  padding-top: 151px;
+  gap: 24px;
+  padding-top: 131px;
   margin: 0 auto;
 }
 
