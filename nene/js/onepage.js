@@ -23,6 +23,7 @@ window.addEventListener('mousewheel', (e) => {
     // addEventListener가 실행이 될때, moveState가 true가 되고, true가 되면서 스크롤이 시작이 된다. 근데 이것을 setTimeOut으로 통제를 한다.
     
     if(!moveState) {
+        
         setTimeout(() => {
             
         }, 0.5);
