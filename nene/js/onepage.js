@@ -20,10 +20,16 @@ let moveState = false;
 
 
 window.addEventListener('mousewheel', (e) => {
+    e.preventDefault();
     // addEventListener가 실행이 될때, moveState가 true가 되고, true가 되면서 스크롤이 시작이 된다. 근데 이것을 setTimeOut으로 통제를 한다.
-    
+    if(!moveState){
 
-    
+        moveState=true;
+        setTimeout(() => {
+            moveState=false;
+        }, 500);
+        
+        
         
         // console.log(sections.length);
         if(window.scrollY < (sections.length)*window.innerHeight){   
@@ -70,6 +76,7 @@ window.addEventListener('mousewheel', (e) => {
                 window.scrollTo({top: index*window.innerHeight,left:0,behavior:"smooth"});
                 
             }
+        }
         }
         
         
