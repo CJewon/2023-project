@@ -72,23 +72,30 @@ header.active {
 }
 
 .menu_con {
-  max-width: 1216px;
   margin: 0 auto;
+  overflow: hidden;
+}
+
+.menu_con_ul {
+  display: flex;
+  flex-direction: row;
+  transform: translateX(-00vw);
+  transition: 1s;
 }
 
 .new_menu_con,
 .popular_menu_con,
 .recommended_menu_con {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   position: relative;
   padding-top: 112px;
-}
-
-.popular_menu_con {
+  flex-shrink: 0;
+  width: 100vw;
   gap: 64px;
 }
+
 
 .new_menu_con > figure > img,
 .popular_menu_con > figure > img,
