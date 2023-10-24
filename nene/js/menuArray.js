@@ -89,14 +89,15 @@ for(let j = 0 ; j <sectionSlider.length;j++){
       for(let i = 0; i < aButtonContainer.childElementCount ; i++){
         aButtonContainer.children[i].classList.remove('active');
 
+
       }
 
 
 
 
 
-
-
+      
+     
 
 
 
@@ -120,7 +121,36 @@ function 차움직이기(도착지점) {
   // x축으로 - 될때는 차가 왼쪽을 보는 이미지 삽입
   // 도착지점에 도달하면 정면을 보게 만든다.
   // 이전좌표 = 도착지점;
+  
+  
+  const neneCharContainer = document.getElementsByClassName('nene_char');
+  
+
+  // 이전좌표, 도착지점을 비교해서(if문) 사용해서 for문 둘중하나 작동하게 하면 될듯
+  
+
+
+
+  // 오른쪽으로 움직이게 하기
+  for(let i = 0; i < neneCharContainer.length; i++) {
+    const neneChar = neneCharContainer[i];
+    neneChar.style.left = `${50}px` 
+  }
+  
+  // 왼쪽으로 움직이게 하기
+
+  for(let i = 0; i < neneCharContainer.length; i++) {
+    const neneChar = neneCharContainer[i];
+    neneChar.style.left = -`${50}px` 
+  }
+
+
+
 }
+
+차움직이기(1);
+
+
 
 
 

@@ -176,7 +176,7 @@ header.active {
   margin: 0 auto;
 }
 
-.nene_char_con > img {
+.nene_char {
   position: relative;
   transition: 1s;
   transform: translateX(-50%);
