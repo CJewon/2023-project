@@ -47,6 +47,19 @@
 // ]
 
 
+// json 사용할때 기본형태 !! *** 데이터베이스 불러오기
+
+let 데이터베이스;
+fetch('../json/new.json')
+.then(res => res.json())
+.then(data => {
+  데이터베이스 = data
+  console.log(data);
+})
+
+// ************************************
+
+
 const sectionSlider = document.getElementsByClassName('slide-section');
 
 
@@ -77,13 +90,18 @@ for(let j = 0 ; j <sectionSlider.length;j++){
     aButton.appendChild(pTag);
     aButton.appendChild(divTag);
 
-    aButton.style.left = `${100 / (menuContainerUl.childElementCount - 1) * i}%`;
+    const thisButtonPos = 100 / (menuContainerUl.childElementCount - 1) * i;
+    aButton.style.left = `${thisButtonPos}%`;
+
+    
     
     
     aButtonContainer.appendChild(aButton);
+    let 네네카이전좌표 = 0;
+    function 차움직이기(도착지점){
 
-
-
+    }
+    
 
     aButton.addEventListener('click', () => {
       for(let i = 0; i < aButtonContainer.childElementCount ; i++){
@@ -91,19 +109,10 @@ for(let j = 0 ; j <sectionSlider.length;j++){
 
 
       }
-
-
-
-
-
-      
-     
-
-
-
+      차움직이기(thisButtonPos);
       aButton.classList.add('active');
     })
-    
+    console.log(sectionSlider);
   }
 
   // <a href="#" class="index-dots active">
@@ -113,43 +122,69 @@ for(let j = 0 ; j <sectionSlider.length;j++){
 }
 
 
-let 이전좌표 = 0;
-function 차움직이기(도착지점) {
-  // 출발지점에서 도착지점으로 차가 움직이게 한다.
-  // 가는 도중에는 출발지점과 도착지점을 계산해
-  // x축으로 +될때는 차가 오른쪽을 보는 이미지 삽입
-  // x축으로 - 될때는 차가 왼쪽을 보는 이미지 삽입
-  // 도착지점에 도달하면 정면을 보게 만든다.
-  // 이전좌표 = 도착지점;
+
+// function 차움직이기(도착지점) {
+//   // 출발지점에서 도착지점으로 차가 움직이게 한다.
+//   // 가는 도중에는 출발지점과 도착지점을 계산해
+//   // x축으로 +될때는 차가 오른쪽을 보는 이미지 삽입
+//   // x축으로 - 될때는 차가 왼쪽을 보는 이미지 삽입
+//   // 도착지점에 도달하면 정면을 보게 만든다.
+//   // 이전좌표 = 도착지점;
   
   
-  const neneCharContainer = document.getElementsByClassName('nene_char');
+//   const neneCharContainer = document.getElementsByClassName('nene_char');
   
 
-  // 이전좌표, 도착지점을 비교해서(if문) 사용해서 for문 둘중하나 작동하게 하면 될듯
+//   // 이전좌표, 도착지점을 비교해서(if문) 사용해서 for문 둘중하나 작동하게 하면 될듯
   
 
 
 
-  // 오른쪽으로 움직이게 하기
-  for(let i = 0; i < neneCharContainer.length; i++) {
-    const neneChar = neneCharContainer[i];
-    neneChar.style.left = `${50}px` 
+//   // if(이전좌표 - 도착지점 > 0) {
+//   //   왼쪽으로 움직이게 하기
+
+//   // } else if (이전좌표 - 도착지점 < 0) {
+//   //   오른쪽으로 움직이게 하기
+
+//   // } else if (이전좌표 - 도착지점 === 0) {
+//   //   아무것도 실행이 되지 않는다.
+
+//   // }
+
+//   //오른쪽으로 움직이게 하기
+//   for(let k = 0; k < neneCharContainer.length; k++) {
+//     const neneChar = neneCharContainer[k];
+//     neneChar.style.left = `${50}px`  // 계산식 수정 필요
+//   }
+  
+//   // 왼쪽으로 움직이게 하기
+
+//   for(let k = 0; k < neneCharContainer.length; k++) {
+//     const neneChar = neneCharContainer[k];
+//     neneChar.style.left = -`${50}px` // 계산식 수정 필아
+//   }
+
+
+
+// }
+
+
+const carTest = document.querySelector('.nene_char');
+
+let 테스트이전위치 = 0 ;
+function 테스트이동(도착위치) {
+  carTest.style.left(`${도착위치}%`);
+
+  if(테스트이전위치 < 도착위치) {
+    // 오른쪽 방향 이미지로 교체
+  }else {
+    // 왼쪽방향 이미지로 교체
   }
-  
-  // 왼쪽으로 움직이게 하기
 
-  for(let i = 0; i < neneCharContainer.length; i++) {
-    const neneChar = neneCharContainer[i];
-    neneChar.style.left = -`${50}px` 
-  }
-
-
-
+  setTimeout(() => {
+    // 이동 끝난 후 정면으로 교체
+  }, timeout);
 }
-
-차움직이기(1);
-
 
 
 

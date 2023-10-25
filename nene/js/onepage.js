@@ -85,7 +85,10 @@ window.addEventListener('mousewheel', (e) => {
         // console.log('indexText : ' + Math.floor(window.scrollY / window.innerHeight))
         // console.log(window.scrollY)
         // console.log((sections.length-1)*window.innerHeight)
-        console.log(index);
+        
+        
+        
+        // console.log(index);
         
 
         

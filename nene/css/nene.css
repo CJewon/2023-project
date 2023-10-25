@@ -104,6 +104,10 @@ header.active {
   height: 100%;
 }
 
+.popular_menu_con figure {
+  order: -1;
+}
+
 .button_con {
   width: fit-content;
   padding: 10px 40px;
@@ -199,8 +203,8 @@ header.active {
 
 
 
-.new_menu h1,
-.recommended_menu h1 {
+.new_menu h3,
+.recommended_menu h3 {
   color: #ea2328;
 }
 
@@ -209,7 +213,7 @@ header.active {
   gap: 16px;
 }
 
-h1 {
+h3 {
   font-weight: 900;
   font-size: 56px;
 }
