@@ -103,7 +103,8 @@ for(let j = 0 ; j <sectionSlider.length;j++){
     }
     
 
-    aButton.addEventListener('click', () => {
+    aButton.addEventListener('click', (e) => {
+      e.preventDefault();
       for(let i = 0; i < aButtonContainer.childElementCount ; i++){
         aButtonContainer.children[i].classList.remove('active');
 
