@@ -47,17 +47,7 @@
 // ]
 
 
-// json 사용할때 기본형태 !! *** 데이터베이스 불러오기
 
-let 데이터베이스;
-fetch('../json/new.json')
-.then(res => res.json())
-.then(data => {
-  데이터베이스 = data
-  console.log(data);
-})
-
-// ************************************
 
 
 const sectionSlider = document.getElementsByClassName('slide-section');
@@ -69,8 +59,53 @@ for(let j = 0 ; j <sectionSlider.length;j++){
   const menuContainer = sectionSlider[j].firstElementChild;
   const menuContainerUl = menuContainer.firstElementChild;
   const aButtonContainer = sectionSlider[j].lastElementChild.lastElementChild;
-  
-  
+
+  const neneCar = sectionSlider[j].querySelector('.nene_char');
+  // for(let k = 0 ; k < menuContainer.childElementCount; k++) {
+  //   console.log(menuContainerUl[k].childElementCount)
+
+  // }
+  // console.log(menuContainer.length)
+  let index = 0 ;
+
+  let 네네카이전좌표 = 0;
+
+  function 슬라이드위치업데이트(){
+    menuContainerUl.style.transform = `translateX(-${100 *index}vw)`
+  }
+
+  function 차움직이기(도착지점){
+    console.log(neneCar)
+    neneCar.style.left= `${도착지점}%`;
+
+      if(네네카이전좌표 < 도착지점) {
+        neneCar.setAttribute('src',"../img/rightnenecar.png")
+      }else {
+        neneCar.setAttribute('src',"../img/leftnenecar.png")
+        // 왼쪽방향 이미지로 교체
+      }
+
+      setTimeout(() => {
+        // 이동 끝난 후 정면으로 교체
+        neneCar.setAttribute('src',"../img/네네캐릭터.png")
+      }, 1000);
+      네네카이전좌표=도착지점;
+  }
+
+  let slideState = true;
+
+  function slideControl() {
+    if(slideState) {
+      slideState === false;
+       // 해당 슬라이드 위치로 이등하기
+      slideState === true;
+    }
+  }
+
+
+
+    
+  // 슬라이드 버튼 만들기
   for(let i = 0 ; i < menuContainerUl.childElementCount ; i ++) {
     const aButton = document.createElement('a');
     aButton.setAttribute('href','#');
@@ -97,24 +132,27 @@ for(let j = 0 ; j <sectionSlider.length;j++){
     
     
     aButtonContainer.appendChild(aButton);
-    let 네네카이전좌표 = 0;
-    function 차움직이기(도착지점){
 
-    }
+   
+
+    
+      // 슬라이드 버튼을 클릭했을때 해당위치로 이미지 이동하기 및 인터랙션 발생
+      aButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        for(let i = 0; i < aButtonContainer.childElementCount ; i++){
+          aButtonContainer.children[i].classList.remove('active');
+        }
+        차움직이기(thisButtonPos);
+        aButton.classList.add('active');
+        index = i ;
+        console.log(`${j}컨테이너의 인덱스 : ${i}`)
+        슬라이드위치업데이트();
+      })
+      
     
 
-    aButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      for(let i = 0; i < aButtonContainer.childElementCount ; i++){
-        aButtonContainer.children[i].classList.remove('active');
-
-
-      }
-      차움직이기(thisButtonPos);
-      aButton.classList.add('active');
-    })
-    console.log(sectionSlider);
   }
+    
 
   // <a href="#" class="index-dots active">
   //         <p>레드마블치킨</p>
@@ -170,21 +208,24 @@ for(let j = 0 ; j <sectionSlider.length;j++){
 // }
 
 
-const carTest = document.querySelector('.nene_char');
+
 
 let 테스트이전위치 = 0 ;
 function 테스트이동(도착위치) {
-  carTest.style.left(`${도착위치}%`);
+  carTest.style.left= `${도착위치}%`;
 
   if(테스트이전위치 < 도착위치) {
-    // 오른쪽 방향 이미지로 교체
+    carTest.setAttribute('src',"../img/rightnenecar.png")
   }else {
+    carTest.setAttribute('src',"../img/leftnenecar.png")
     // 왼쪽방향 이미지로 교체
   }
 
   setTimeout(() => {
     // 이동 끝난 후 정면으로 교체
-  }, timeout);
+    carTest.setAttribute('src',"../img/네네캐릭터.png")
+  }, 1000);
+  테스트이전위치=도착위치;
 }
 
 

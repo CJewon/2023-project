@@ -79,7 +79,6 @@ header.active {
 .menu_con_ul {
   display: flex;
   flex-direction: row;
-  transform: translateX(-00vw);
   transition: 1s;
 }
 
@@ -184,7 +183,14 @@ header.active {
   position: relative;
   transition: 1s;
   transform: translateX(-50%);
+  width: 67px;
+  height: 67px;
+  left: 0%;
 }
+
+/* .nene_char.hidden {
+  display: none;
+} */
 
 .menu_title_con {
   display: flex;
