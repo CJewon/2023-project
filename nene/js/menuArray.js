@@ -55,7 +55,6 @@ const sectionSlider = document.getElementsByClassName('slide-section');
 
 for(let j = 0 ; j <sectionSlider.length;j++){
 
-  
   const menuContainer = sectionSlider[j].firstElementChild;
   const menuContainerUl = menuContainer.firstElementChild;
   const aButtonContainer = sectionSlider[j].lastElementChild.lastElementChild;

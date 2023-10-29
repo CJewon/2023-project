@@ -10,3 +10,17 @@ fetch('../json/new.json')
 
 // ************************************
 
+// const sectionSlider = document.getElementsByClassName('slide-section');
+
+for(let i = 0; i < sectionSlider.length; i++) {
+  const menuContainer = sectionSlider[i].firstElementChild;
+  const menuContainerUl = menuContainer.firstElementChild;
+  const menuCOntainerLi = menuContainerUl.children;
+
+  //  for(let j = 0 ; j < menuContainerUl.childElementCount; j++) {
+  //   const menuContainerLi = menuContainerUl[j].children;
+  //  }
+
+   console.log(menuCOntainerLi)
+  
+}
