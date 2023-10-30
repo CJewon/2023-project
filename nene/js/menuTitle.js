@@ -15,12 +15,18 @@ fetch('../json/new.json')
 for(let i = 0; i < sectionSlider.length; i++) {
   const menuContainer = sectionSlider[i].firstElementChild;
   const menuContainerUl = menuContainer.firstElementChild;
-  const menuCOntainerLi = menuContainerUl.children;
+  const menuContainerLi = menuContainerUl.children;
+  
+  for(let j = 0 ; j <menuContainerLi.firstElementChild.length; j++ ){
 
-  //  for(let j = 0 ; j < menuContainerUl.childElementCount; j++) {
-  //   const menuContainerLi = menuContainerUl[j].children;
-  //  }
+    // const makeDiv = document.createElement('div');
+    // makeDiv.classList.add('menu_title_con')
+    
+  }
+  // menuContainerLi.appendchild(makeDiv);
+  
+  console.log(menuContainerLi.firstElementChild.length)
 
-   console.log(menuCOntainerLi)
+   
   
 }
