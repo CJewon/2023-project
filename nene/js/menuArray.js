@@ -78,15 +78,15 @@ for(let j = 0 ; j <sectionSlider.length;j++){
     neneCar.style.left= `${도착지점}%`;
 
       if(네네카이전좌표 < 도착지점) {
-        neneCar.setAttribute('src',"../img/rightnenecar.png")
+        neneCar.setAttribute('src',"./nene/img/rightnenecar.png")
       }else {
-        neneCar.setAttribute('src',"../img/leftnenecar.png")
+        neneCar.setAttribute('src',"./nene/img/leftnenecar.png")
         // 왼쪽방향 이미지로 교체
       }
 
       setTimeout(() => {
         // 이동 끝난 후 정면으로 교체
-        neneCar.setAttribute('src',"../img/네네캐릭터.png")
+        neneCar.setAttribute('src',"./nene/img/네네캐릭터.png")
       }, 1000);
       네네카이전좌표=도착지점;
   }

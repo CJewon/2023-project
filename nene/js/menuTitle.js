@@ -13,31 +13,35 @@
 // const sectionSlider = document.getElementsByClassName('slide-section');
 
 let dbContainer = [];
-fetch('../json/new.json')
+fetch('../../json/new.json')
 .then(res => res.json())
 .then(data => {
   dbContainer.push(data);
-  console.log(dbContainer)
+  // console.log(dbContainer)
   // makeContent();  
-  fetch('../json/popular.json')
+  fetch('../../json/popular.json')
   .then(res => res.json())
   .then(data => {
     dbContainer.push(data);
     // makeContent();  
-    fetch('../json/recommend.json')
+    fetch('../../json/recommend.json')
     .then(res => res.json())
     .then(data => {
       dbContainer.push(data);
-      makeContent();  
+      makeContent();
+
+      for(let i = 0; i < sectionSlider.length; i++) {
+
+        const menuContainer = sectionSlider[i].firstElementChild;
+        const menuContainerUl = menuContainer.firstElementChild; 
+        console.log(menuContainerUl)
+
+      }
     })
   })
 })
 
 
-// setTimeout(() => {
-//   makeContent();
-
-// }, 100);
 
 
 
@@ -45,7 +49,7 @@ fetch('../json/new.json')
 
 function makeContent(){
   dbContainer.map((db)=>{
-    console.log(db)
+    // console.log(db)
     
     
     for(let i = 0; i < db.length; i++) {
@@ -137,7 +141,7 @@ divMenuTitleCon.appendChild(menuStyleUl);
 divMenuTitleCon.appendChild(aButtonTag);
 divMenuTitleCon.appendChild(imgContainer)
 
-console.log(contents)
+// console.log(contents)
 
 
 }
