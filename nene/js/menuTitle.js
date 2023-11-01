@@ -13,6 +13,7 @@
 // const sectionSlider = document.getElementsByClassName('slide-section');
 
 let dbContainer = [];
+let contentsArray = [];
 fetch('../../json/new.json')
 .then(res => res.json())
 .then(data => {
@@ -30,17 +31,33 @@ fetch('../../json/new.json')
       dbContainer.push(data);
       makeContent();
 
+      // console.log(contentsArray);
+
+      let menuContainerLiArray = [];
       for(let i = 0; i < sectionSlider.length; i++) {
-
         const menuContainer = sectionSlider[i].firstElementChild;
-        const menuContainerUl = menuContainer.firstElementChild; 
+        const menuContainerUl = menuContainer.firstElementChild;
+        
+        // menuContainerLiArray.push(menuContainerUl)
         console.log(menuContainerUl)
-
       }
+        
+      for(let j = 0; j < menuContainerLiArray.length; j++) {
+
+          // k = 
+          for(let k = 0 ; k < menuContainerLiArray[j]; k++) {
+            // console.log(menuContainerLiArray[j].appendChild(contentsArray[0]))
+          }
+      }
+      console.log(menuContainerLiArray[0])
+      
+        
+
+        
+        
     })
   })
 })
-
 
 
 
@@ -141,8 +158,7 @@ divMenuTitleCon.appendChild(menuStyleUl);
 divMenuTitleCon.appendChild(aButtonTag);
 divMenuTitleCon.appendChild(imgContainer)
 
-// console.log(contents)
-
+contentsArray.push(contents);
 
 }
 
