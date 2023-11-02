@@ -76,11 +76,11 @@ function makeContent(){
       
       //   <li class="recommended_menu_con">
       const contents = document.createElement('li');
-      if(i = 0){
+      if(i == 0){
         contents.classList.add('new_menu_con');
-      }else if (i = 1) {
+      }else if (i == 1) {
         contents.classList.add('popular_menu_con');
-      }else (i = 2) {
+      }else {
         contents.classList.add('recommended_menu_con');
       }
       //           <div class="menu_title_con">
