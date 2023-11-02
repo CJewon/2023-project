@@ -66,9 +66,9 @@ fetch('../../json/new.json')
 
 
 function makeContent(){
+  const menuConUl = document.getElementsByClassName('menu_con_ul');
   dbContainer.map((db)=>{
     // console.log(db)
-    const menuConUl = document.getElementsByClassName('menu_con_ul');
     
 
     console.log(db.length)
@@ -76,7 +76,13 @@ function makeContent(){
       
       //   <li class="recommended_menu_con">
       const contents = document.createElement('li');
-      contents.classList.add('recommended_menu_con');
+      if(i = 0){
+        contents.classList.add('new_menu_con');
+      }else if (i = 1) {
+        contents.classList.add('popular_menu_con');
+      }else (i = 2) {
+        contents.classList.add('recommended_menu_con');
+      }
       //           <div class="menu_title_con">
 const divMenuTitleCon = document.createElement('div');
 divMenuTitleCon.classList.add('menu_title_con');
@@ -163,28 +169,9 @@ divMenuTitleCon.appendChild(imgContainer);
 
 
 
-// console.log(menuConUl[i])
+console.log(contents)
 }
 
-// console.log(menuConUl)
-
-
-// const menuContainer = sectionSlider[i].firstElementChild;
-// const menuContainerUl = menuContainer.firstElementChild;
-// const menuContainerLi = menuContainerUl.children;
-
-// for(let j = 0 ; j <menuContainerLi.firstElementChild; j++ ){
-  
-  //   // const makeDiv = document.createElement('div');
-  //   // makeDiv.classList.add('menu_title_con')
-  
-  // }
-  // menuContainerLi.appendchild(makeDiv);
-  
-  // console.log(menuContainerUl)
-  
-  // for(let j = 0 ; j < ) 
-  
-  // }
 })
+console.log(menuConUl)
 }
