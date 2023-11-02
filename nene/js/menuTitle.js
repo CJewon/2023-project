@@ -34,22 +34,32 @@ fetch('../../json/new.json')
       // console.log(contentsArray);
 
       let menuContainerLiArray = [];
+      let makeMenuContainer; 
       for(let i = 0; i < sectionSlider.length; i++) {
         const menuContainer = sectionSlider[i].firstElementChild;
         const menuContainerUl = menuContainer.firstElementChild;
+        makeMenuContainer = menuContainerUl;
         
-        // menuContainerLiArray.push(menuContainerUl)
-        console.log(menuContainerUl)
+        menuContainerLiArray.push(menuContainerUl)
       }
-        
-      for(let j = 0; j < menuContainerLiArray.length; j++) {
-
-          // k = 
-          for(let k = 0 ; k < menuContainerLiArray[j]; k++) {
-            // console.log(menuContainerLiArray[j].appendChild(contentsArray[0]))
+        // for(let j = 0; j < menuContainerUl)
+        // console.log(menuContainerLiArray.length)
+        let menuContainerArray = []
+        for(let j = 0 ; j < menuContainerLiArray.length; j++) {
+          let menuUlArray = [];
+          menuContainerArray.push(menuUlArray)
+          
+          for(let k = 0; k < menuContainerLiArray[j].childElementCount; k++){
+            menuUlArray.push(contentsArray[k])
           }
-      }
-      console.log(menuContainerLiArray[0])
+          console.log(menuUlArray)
+        }
+        
+        console.log(makeMenuContainer)
+        
+      
+        
+      
       
         
 
