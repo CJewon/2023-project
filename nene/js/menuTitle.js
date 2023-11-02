@@ -42,8 +42,8 @@ fetch('../../json/new.json')
         
         menuContainerLiArray.push(menuContainerUl)
       }
-        // for(let j = 0; j < menuContainerUl)
-        // console.log(menuContainerLiArray.length)
+     
+      // console.log(menuContainerLiArray)
         let menuContainerArray = []
         for(let j = 0 ; j < menuContainerLiArray.length; j++) {
           let menuUlArray = [];
@@ -52,10 +52,10 @@ fetch('../../json/new.json')
           for(let k = 0; k < menuContainerLiArray[j].childElementCount; k++){
             menuUlArray.push(contentsArray[k])
           }
-          console.log(menuUlArray)
+          console.log(menuUlArray[0])
         }
-        
-        console.log(makeMenuContainer)
+
+        // console.log(makeMenuContainer)
         
       
         
