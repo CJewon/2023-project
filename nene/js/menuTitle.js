@@ -33,38 +33,29 @@ fetch('../../json/new.json')
 
       // console.log(contentsArray);
 
-      let menuContainerLiArray = [];
-      let makeMenuContainer; 
-      for(let i = 0; i < sectionSlider.length; i++) {
-        const menuContainer = sectionSlider[i].firstElementChild;
-        const menuContainerUl = menuContainer.firstElementChild;
-        makeMenuContainer = menuContainerUl;
+      // let menuContainerLiArray = [];
+      // let makeMenuContainer; 
+      // for(let i = 0; i < sectionSlider.length; i++) {
+      //   const menuContainer = sectionSlider[i].firstElementChild;
+      //   const menuContainerUl = menuContainer.firstElementChild;
+      //   makeMenuContainer = menuContainerUl;
         
-        menuContainerLiArray.push(menuContainerUl)
-      }
+      //   menuContainerLiArray.push(menuContainerUl)
+      // }
      
-      // console.log(menuContainerLiArray)
-        let menuContainerArray = []
-        for(let j = 0 ; j < menuContainerLiArray.length; j++) {
-          let menuUlArray = [];
-          menuContainerArray.push(menuUlArray)
+      // // console.log(menuContainerLiArray)
+      //   let menuContainerArray = []
+      //   for(let j = 0 ; j < menuContainerLiArray.length; j++) {
+      //     let menuUlArray = [];
+      //     menuContainerArray.push(menuUlArray)
           
-          for(let k = 0; k < menuContainerLiArray[j].childElementCount; k++){
-            menuUlArray.push(contentsArray[k])
-          }
-          console.log(menuUlArray[0])
-        }
+      //     for(let k = 0; k < menuContainerLiArray[j].childElementCount; k++){
+      //       menuUlArray.push(contentsArray[k])
+      //     }
+      //     console.log(menuUlArray[0])
+      //   }
 
         // console.log(makeMenuContainer)
-        
-      
-        
-      
-      
-        
-
-        
-        
     })
   })
 })
@@ -77,8 +68,10 @@ fetch('../../json/new.json')
 function makeContent(){
   dbContainer.map((db)=>{
     // console.log(db)
+    const menuConUl = document.getElementsByClassName('menu_con_ul');
     
-    
+
+    console.log(db.length)
     for(let i = 0; i < db.length; i++) {
       
       //   <li class="recommended_menu_con">
@@ -166,12 +159,14 @@ divMenuTitleCon.appendChild(menuSubNaming);
 divMenuTitleCon.appendChild(menuExplain);
 divMenuTitleCon.appendChild(menuStyleUl);
 divMenuTitleCon.appendChild(aButtonTag);
-divMenuTitleCon.appendChild(imgContainer)
+divMenuTitleCon.appendChild(imgContainer);
 
-contentsArray.push(contents);
 
+
+// console.log(menuConUl[i])
 }
 
+// console.log(menuConUl)
 
 
 // const menuContainer = sectionSlider[i].firstElementChild;
