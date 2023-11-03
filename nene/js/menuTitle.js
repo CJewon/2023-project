@@ -14,18 +14,18 @@ async function menuTitle(){// json 사용할때 기본형태 !! *** 데이터베
 // const sectionSlider = document.getElementsByClassName('slide-section');
 
   let dbContainer = [];
-  fetch('../../json/new.json')
+  fetch('json/new.json')
   .then(res => res.json())
   .then(data => {
     dbContainer.push(data);
     // console.log(dbContainer)
     // makeContent();  
-    fetch('../../json/popular.json')
+    fetch('json/popular.json')
     .then(res => res.json())
     .then(data => {
       dbContainer.push(data);
       // makeContent();  
-      fetch('../../json/recommend.json')
+      fetch('json/recommend.json')
       .then(res => res.json())
       .then(data => {
         dbContainer.push(data);
