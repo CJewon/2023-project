@@ -1,4 +1,5 @@
-// json 사용할때 기본형태 !! *** 데이터베이스 불러오기
+menuTitle()
+async function menuTitle(){// json 사용할때 기본형태 !! *** 데이터베이스 불러오기
 
 // let 데이터베이스;
 // fetch('../json/new.json')
@@ -12,53 +13,60 @@
 
 // const sectionSlider = document.getElementsByClassName('slide-section');
 
-let dbContainer = [];
-let contentsArray = [];
-fetch('../../json/new.json')
-.then(res => res.json())
-.then(data => {
-  dbContainer.push(data);
-  // console.log(dbContainer)
-  // makeContent();  
-  fetch('../../json/popular.json')
+  let dbContainer = [];
+  fetch('../../json/new.json')
   .then(res => res.json())
   .then(data => {
     dbContainer.push(data);
+    // console.log(dbContainer)
     // makeContent();  
-    fetch('../../json/recommend.json')
+    fetch('../../json/popular.json')
     .then(res => res.json())
     .then(data => {
       dbContainer.push(data);
-      makeContent();
-
-      // console.log(contentsArray);
-
-      // let menuContainerLiArray = [];
-      // let makeMenuContainer; 
-      // for(let i = 0; i < sectionSlider.length; i++) {
-      //   const menuContainer = sectionSlider[i].firstElementChild;
-      //   const menuContainerUl = menuContainer.firstElementChild;
-      //   makeMenuContainer = menuContainerUl;
+      // makeContent();  
+      fetch('../../json/recommend.json')
+      .then(res => res.json())
+      .then(data => {
+        dbContainer.push(data);
         
-      //   menuContainerLiArray.push(menuContainerUl)
-      // }
-     
-      // // console.log(menuContainerLiArray)
-      //   let menuContainerArray = []
-      //   for(let j = 0 ; j < menuContainerLiArray.length; j++) {
-      //     let menuUlArray = [];
-      //     menuContainerArray.push(menuUlArray)
-          
-      //     for(let k = 0; k < menuContainerLiArray[j].childElementCount; k++){
-      //       menuUlArray.push(contentsArray[k])
-      //     }
-      //     console.log(menuUlArray[0])
-      //   }
+        함수();
+        async function 함수(){
 
-        // console.log(makeMenuContainer)
+        
+          await makeContent();
+          await menuArray();
+        }
+        
+
+        // console.log(contentsArray);
+
+        // let menuContainerLiArray = [];
+        // let makeMenuContainer; 
+        // for(let i = 0; i < sectionSlider.length; i++) {
+        //   const menuContainer = sectionSlider[i].firstElementChild;
+        //   const menuContainerUl = menuContainer.firstElementChild;
+        //   makeMenuContainer = menuContainerUl;
+          
+        //   menuContainerLiArray.push(menuContainerUl)
+        // }
+      
+        // // console.log(menuContainerLiArray)
+        //   let menuContainerArray = []
+        //   for(let j = 0 ; j < menuContainerLiArray.length; j++) {
+        //     let menuUlArray = [];
+        //     menuContainerArray.push(menuUlArray)
+            
+        //     for(let k = 0; k < menuContainerLiArray[j].childElementCount; k++){
+        //       menuUlArray.push(contentsArray[k])
+        //     }
+        //     console.log(menuUlArray[0])
+        //   }
+
+          // console.log(makeMenuContainer)
+      })
     })
   })
-})
 
 
 
@@ -66,10 +74,14 @@ fetch('../../json/new.json')
 
 
 function makeContent(){
+
+  const conName = ['new_menu_con','popular_menu_con','recommended_menu_con']
   const menuConUl = document.getElementsByClassName('menu_con_ul');
+  // console.log(menuConUl);
   // console.log(menuConUl)
-  console.log(dbContainer.length);
-  dbContainer.map((db)=>{
+  // console.log(dbContainer.length);
+  dbContainer.map((db, index)=>{
+    // console.log(index);
     // console.log(db)
     // console.log(db[0].length)           //   3   ,     4       ,     3
     
@@ -83,7 +95,7 @@ function makeContent(){
         //   <li class="recommended_menu_con">
         const contents = document.createElement('li');
         
-        contents.classList.add('recommended_menu_con');
+        contents.classList.add(conName[index]);
         
         //           <div class="menu_title_con">
         const divMenuTitleCon = document.createElement('div');
@@ -149,6 +161,8 @@ function makeContent(){
         
         
         //           </div>
+
+      
         
         //           <figure>
         //             <img src="../img/핫블링치킨.png" alt="핫블링치킨">
@@ -167,14 +181,14 @@ function makeContent(){
         divMenuTitleCon.appendChild(menuExplain);
         divMenuTitleCon.appendChild(menuStyleUl);
         divMenuTitleCon.appendChild(aButtonTag);
-        divMenuTitleCon.appendChild(imgContainer);
+        contents.appendChild(imgContainer);
         
         
-        
-        console.log(contents)
+        // console.log(contents)
+        menuConUl[index].appendChild(contents);
       }
       
     
     })
     // console.log(menuConUl)
-  }
+  }}

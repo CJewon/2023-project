@@ -1,4 +1,4 @@
-// 필요한 요소 : ChildElementCount를 이용해서 menu-slide-index-container의 자식의 갯수를 불러와서 index 값을 구한다.
+function menuArray(){// 필요한 요소 : ChildElementCount를 이용해서 menu-slide-index-container의 자식의 갯수를 불러와서 index 값을 구한다.
 // menu-slide-index-container , 
 // 각 index값의 거리 값을 구하기 위한 식은
 // for(let i = 0; i < index; i ++) {
@@ -247,3 +247,4 @@ function 테스트이동(도착위치) {
 
 
 
+}
