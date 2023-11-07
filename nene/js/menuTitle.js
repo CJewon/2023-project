@@ -103,10 +103,18 @@ function makeContent(){
         
         
         
-        //             <h3>db.이름</h3>
-        const menuNaming = document.createElement('h3');
-        const menuNamingText = document.createTextNode(db[i].이름);
-        menuNaming.appendChild(menuNamingText);
+                    // <h3>db.이름</h3>
+
+        
+          const menuNaming = document.createElement('h3');
+          if(index === 1 && i === 0) {
+            const menuNamingText = document.createTextNode(db[i].이름.img);
+            menuNaming.appendChild(menuNamingText);
+          } else {
+            const menuNamingText = document.createTextNode(db[i].이름);
+            menuNaming.appendChild(menuNamingText);
+          }          
+        
         
         
         //             <p>핫하고 달콤한 소스와<br>홍, 청고추의 매력적인 치킨!</p>

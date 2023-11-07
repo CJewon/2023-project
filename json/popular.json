@@ -1,10 +1,150 @@
 [
     {
-        "이름": "레드마요치킨",
+        "이름": {
+            "version": "1.0",
+            "image": {
+              "name": "../tmp/220999749994999915447646/R3JvdXArMjc=.svg",
+              "permissions": 644,
+              "format": "SVG",
+              "formatDescription": "Scalable Vector Graphics",
+              "mimeType": "image/svg+xml",
+              "class": "DirectClass",
+              "geometry": {
+                "width": 306,
+                "height": 56,
+                "x": 0,
+                "y": 0
+              },
+              "resolution": {
+                "x": 96,
+                "y": 96
+              },
+              "printSize": {
+                "x": 3.1875,
+                "y": 0.583333
+              },
+              "units": "Undefined",
+              "type": "TrueColorAlpha",
+              "endianness": "Undefined",
+              "colorspace": "sRGB",
+              "depth": 16,
+              "baseDepth": 16,
+              "channelDepth": {
+                "alpha": 1,
+                "red": 16,
+                "green": 16,
+                "blue": 16
+              },
+              "pixels": 17136,
+              "imageStatistics": {
+                "all": {
+                  "min": 0,
+                  "max": 65535,
+                  "mean": 48318.1,
+                  "standardDeviation": 17280.9,
+                  "kurtosis": -0.74823,
+                  "skewness": -0.954264,
+                  "entropy": 0.293688
+                }
+              },
+              "channelStatistics": {
+                "alpha": {
+                  "min": 0,
+                  "max": 0,
+                  "mean": 0,
+                  "standardDeviation": 0,
+                  "kurtosis": 8.192e+51,
+                  "skewness": 1e+36,
+                  "entropy": 0
+                },
+                "red": {
+                  "min": 11822,
+                  "max": 65535,
+                  "mean": 53034.6,
+                  "standardDeviation": 20316.8,
+                  "kurtosis": -0.233374,
+                  "skewness": -1.23317,
+                  "entropy": 0.332723
+                },
+                "green": {
+                  "min": 8995,
+                  "max": 65535,
+                  "mean": 44520.6,
+                  "standardDeviation": 19721.9,
+                  "kurtosis": -0.912798,
+                  "skewness": -0.491113,
+                  "entropy": 0.421438
+                },
+                "blue": {
+                  "min": 0,
+                  "max": 65535,
+                  "mean": 30182,
+                  "standardDeviation": 29085.1,
+                  "kurtosis": -1.77625,
+                  "skewness": 0.267216,
+                  "entropy": 0.42059
+                }
+              },
+              "renderingIntent": "Perceptual",
+              "gamma": 0.454545,
+              "chromaticity": {
+                "redPrimary": {
+                  "x": 0.64,
+                  "y": 0.33
+                },
+                "greenPrimary": {
+                  "x": 0.3,
+                  "y": 0.6
+                },
+                "bluePrimary": {
+                  "x": 0.15,
+                  "y": 0.06
+                },
+                "whitePrimary": {
+                  "x": 0.3127,
+                  "y": 0.329
+                }
+              },
+              "backgroundColor": "#FFFFFFFFFFFFFFFF",
+              "borderColor": "#DFDFDFDFDFDFFFFF",
+              "matteColor": "#BDBDBDBDBDBDFFFF",
+              "transparentColor": "#0000000000000000",
+              "interlace": "None",
+              "intensity": "Undefined",
+              "compose": "Over",
+              "pageGeometry": {
+                "width": 306,
+                "height": 56,
+                "x": 0,
+                "y": 0
+              },
+              "dispose": "Undefined",
+              "iterations": 0,
+              "compression": "Undefined",
+              "orientation": "Undefined",
+              "properties": {
+                "date:create": "2023-11-06T08:23:56+00:00",
+                "date:modify": "2023-11-06T08:23:56+00:00",
+                "date:timestamp": "2023-11-06T08:23:56+00:00",
+                "signature": "5af3f00734d1979f84b30b0b9a0edfc04542a1ea1e37aa1471864a56de3c9c04"
+              },
+              "artifacts": {
+                "filename": "../tmp/220999749994999915447646/R3JvdXArMjc=.svg"
+              },
+              "tainted": false,
+              "filesize": "8007B",
+              "numberPixels": "17136",
+              "pixelsPerSecond": "3.19455MB",
+              "userTime": "0.010u",
+              "elapsedTime": "0:01.005",
+              "version": "ImageMagick 6.9.12-93 Q16 x86_64 17898 https://legacy.imagemagick.org"
+            }
+          }
+          ,
         "서브타이틀" : "네네 비법소스와 마요네즈의 찰떡궁합! 더불어 웨지감자의 알찬구성!",
         "설명" : "네네소스가 궁금한가? 그럼 레드마요치킨에 도전하라!",
         "뱃지" : ["마일드","순살","인기 TOP3","늬끼"],
-        "이미지" : "./nene/img/레드마요치킨.png"
+        "이미지" : "nene/img/레드마요치킨.png"
     },
 
     {
@@ -12,7 +152,7 @@
         "서브타이틀" : "입 안에서 사르르 녹는 스노윙 치즈",
         "설명" : "네네소스가 궁금한가? 그럼 레드마요치킨에 도전하라!",
         "뱃지" : ["마일드","순살","인기 TOP3","늬끼"],
-        "이미지" : "./nene/img/치즈스노윙.png"
+        "이미지" : "nene/img/치즈스노윙.png"
     },
 
     {
@@ -20,7 +160,7 @@
         "서브타이틀" : "짭쪼름한 소이갈릭치킨",
         "설명" : "네네소스가 궁금한가? 그럼 레드마요치킨에 도전하라!",
         "뱃지" : ["마일드","순살","인기 TOP3","늬끼"],
-        "이미지" : "./nene/img/소이갈릭치킨.png"
+        "이미지" : "nene/img/소이갈릭치킨.png"
     },
 
     {
@@ -28,7 +168,7 @@
         "서브타이틀" : "새콤달콤 짭쪼름한 오리엔탈소스에 신선한 파가 듬뿍",
         "설명" : "네네소스가 궁금한가? 그럼 레드마요치킨에 도전하라!",
         "뱃지" : ["마일드","순살","인기 TOP3","늬끼"],
-        "이미지" : "./nene/img/오지엔탈파닭.png"
+        "이미지" : "nene/img/오지엔탈파닭.png"
     }
 ]
 
