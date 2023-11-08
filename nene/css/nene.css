@@ -264,6 +264,8 @@ h2 {
   gap: 56px;
 }
 
+
+
 .nene_store_img {
   display: flex;
   width: 265px;
@@ -287,6 +289,7 @@ h2 {
   font-size: 14px;
   white-space: nowrap;
 }
+
 
 .location_store_li > a {
   display: flex;

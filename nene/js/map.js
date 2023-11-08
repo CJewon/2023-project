@@ -74,7 +74,25 @@ function placesSearchCB(data, status, pagination) {
             locationPTag.appendChild(locationPTagText)
             imgFigure.appendChild(locationPTag);
 
+            const informationPTag = document.createElement('p')
+            const informationPTagText = document.createTextNode(data[i].place_name);
             
+            informationPTag.appendChild(informationPTagText);
+            aTag.appendChild(informationPTag)
+
+            const storeNumber = document.createElement('p')
+            const storeNumberPTag = document.createTextNode(data[i].phone)
+
+            storeNumber.appendChild(storeNumberPTag)
+            aTag.appendChild(storeNumber)
+
+            const addressPTag = document.createElement('p')
+            const addressPTagText = document.createTextNode(data[i].address_name);
+
+            addressPTag.appendChild(addressPTagText)
+            aTag.appendChild(addressPTagText)
+
+
             locationStoreUl.appendChild(storeList);
         }
         console.log(locationStore)
