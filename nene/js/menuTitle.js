@@ -107,15 +107,12 @@ function makeContent(){
 
         
           const menuNaming = document.createElement('h3');
-          if(index === 1 && i === 0) {
+
             const designImg = document.createElement("img");
-            designImg.setAttribute("src", db[i].이름)
-            designImg.setAttribute('alt', "레드마요치킨")
+            designImg.setAttribute("src", db[i].타이틀svg경로)
+            designImg.setAttribute('alt', db[i].이름)
             menuNaming.appendChild(designImg);
-          } else {
-            const menuNamingText = document.createTextNode(db[i].이름);
-            menuNaming.appendChild(menuNamingText);
-          }          
+            
         
         
         
