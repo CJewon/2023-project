@@ -3,7 +3,7 @@ var markers = [];
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
-        center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+        center: new kakao.maps.LatLng(37.566826, 27.9786567), // 지도의 중심좌표
         level: 3 // 지도의 확대 레벨
     };  
 
@@ -17,7 +17,8 @@ var ps = new kakao.maps.services.Places();
 var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 
 // 키워드로 장소를 검색합니다
-searchPlaces();
+ps.keywordSearch( "구월동 네네치킨", placesSearchCB); 
+// searchPlaces();
 
 // 키워드 검색을 요청하는 함수입니다
 function searchPlaces() {
@@ -30,29 +31,68 @@ function searchPlaces() {
     }
 
     // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
-    ps.keywordSearch( keyword, placesSearchCB); 
+    // ps.keywordSearch( "구월동 네네치킨", placesSearchCB); 
 }
 
 // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
+// 검색이 완료되면 데이터를 이용하여 각종 정보를 웹사이트에 표시합니다.
 function placesSearchCB(data, status, pagination) {
     if (status === kakao.maps.services.Status.OK) {
 
         // 정상적으로 검색이 완료됐으면
         // 검색 목록과 마커를 표출합니다
         displayPlaces(data);
+        console.log(data);
+        
+        const locationStore = document.querySelector(".location_store_sec")
+        const locationStoreCon = locationStore.firstElementChild;
+        const locationStoreUl = document.createElement('ul');
+        locationStoreUl.classList.add('location_store_ul')
+        locationStoreCon.appendChild(locationStoreUl);
+
+        for(let i = 0; i < data.length; i++) {
+            const storeList = document.createElement("li") 
+            storeList.classList.add('location_store_li')
+            const aTag = document.createElement('a')
+            aTag.setAttribute("href", "#");
+            storeList.appendChild(aTag)
+            
+            const divImg = document.createElement('div')
+            divImg.classList.add('nene_store_img')
+            aTag.appendChild(divImg)
+            const imgFigure = document.createElement('figure');
+            divImg.appendChild(imgFigure);
+
+            const neneImg = document.createElement('img')
+            neneImg.setAttribute("src", "nene/img/neneLogo.png")
+            neneImg.setAttribute("alt", "네네로고")
+
+            imgFigure.appendChild(neneImg);
+            const locationPTag = document.createElement('p')
+            const locationPTagText = document.createTextNode(data[i].place_name)
+            
+            locationPTag.appendChild(locationPTagText)
+            imgFigure.appendChild(locationPTag);
+
+            
+            locationStoreUl.appendChild(storeList);
+        }
+        console.log(locationStore)
+        
+        
 
         // 페이지 번호를 표출합니다
-        displayPagination(pagination);
+        // displayPagination(pagination);
 
-    } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
+    // } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
 
-        alert('검색 결과가 존재하지 않습니다.');
-        return;
+    //     alert('검색 결과가 존재하지 않습니다.');
+    //     return;
 
-    } else if (status === kakao.maps.services.Status.ERROR) {
+    // } else if (status === kakao.maps.services.Status.ERROR) {
 
-        alert('검색 결과 중 오류가 발생했습니다.');
-        return;
+    //     alert('검색 결과 중 오류가 발생했습니다.');
+    //     return;
 
     }
 }
@@ -168,45 +208,6 @@ function removeMarker() {
     markers = [];
 }
 
-// 검색결과 목록 하단에 페이지번호를 표시는 함수입니다
-function displayPagination(pagination) {
-    var paginationEl = document.getElementById('pagination'),
-        fragment = document.createDocumentFragment(),
-        i; 
-
-    // 기존에 추가된 페이지번호를 삭제합니다
-    while (paginationEl.hasChildNodes()) {
-        paginationEl.removeChild (paginationEl.lastChild);
-    }
-
-    for (i=1; i<=pagination.last; i++) {
-        var el = document.createElement('a');
-        el.href = "#";
-        el.innerHTML = i;
-
-        if (i===pagination.current) {
-            el.className = 'on';
-        } else {
-            el.onclick = (function(i) {
-                return function() {
-                    pagination.gotoPage(i);
-                }
-            })(i);
-        }
-
-        fragment.appendChild(el);
-    }
-    paginationEl.appendChild(fragment);
-}
-
-// 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
-// 인포윈도우에 장소명을 표시합니다
-function displayInfowindow(marker, title) {
-    var content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
-
-    infowindow.setContent(content);
-    infowindow.open(map, marker);
-}
 
  // 검색결과 목록의 자식 Element를 제거하는 함수입니다
 function removeAllChildNods(el) {   

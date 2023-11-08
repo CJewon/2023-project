@@ -282,9 +282,10 @@ h2 {
 }
 
 .nene_store_img > figure > p {
-  position: absolute;
-  top: 70%;
-  left: 70%;
+  display: flex;
+  justify-content: end;
+  font-size: 14px;
+  white-space: nowrap;
 }
 
 .location_store_li > a {
@@ -444,3 +445,6 @@ h2 {
 #pagination {margin:10px auto;text-align: center;}
 #pagination a {display:inline-block;margin-right:10px;}
 #pagination .on {font-weight: bold; cursor: default;color:#777;}
+.map_wrap {
+  display: none;
+}
