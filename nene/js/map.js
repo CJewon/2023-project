@@ -236,6 +236,6 @@ function removeAllChildNods(el) {
     }
 }
 
-function createSlider() {
+// function createSlider() {
     
-}
+// }
