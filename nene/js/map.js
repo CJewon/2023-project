@@ -96,6 +96,8 @@ function placesSearchCB(data, status, pagination) {
             locationStoreUl.appendChild(storeList);
         }
         console.log(locationStore)
+
+        
         
         
 
@@ -232,4 +234,8 @@ function removeAllChildNods(el) {
     while (el.hasChildNodes()) {
         el.removeChild (el.lastChild);
     }
+}
+
+function createSlider() {
+    
 }
