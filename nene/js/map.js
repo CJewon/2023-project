@@ -18,136 +18,239 @@ var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 
 // 키워드로 장소를 검색합니다
 
-let searchResult = [];
+// let searchResult = [];
 
 
-makeContent()
-async function makeContent() {
+// makeContent()
+// async function makeContent() {
 
-     await ps.keywordSearch( "구월동 네네치킨", placesSearchCB); 
-     await makeStoreList();
-    test();    
-}
+        // await ps.keywordSearch( "구월동 네네치킨", placesSearchCB); 
+//      await makeStoreList();
+//      // test();    
+// }
 
-function test() {
-    const a = document.querySelector('.slide_container')
-    console.log(a)
+// function test() {
+//     const a = document.querySelector('.slide_container')
+//     console.log(a)
 
-}
-// searchPlaces();
+// }
+// // searchPlaces();
 
-// 키워드 검색을 요청하는 함수입니다
-function searchPlaces() {
+// // 키워드 검색을 요청하는 함수입니다
+// function searchPlaces() {
 
-    var keyword = document.getElementById('keyword').value;
+//     var keyword = document.getElementById('keyword').value;
 
-    if (!keyword.replace(/^\s+|\s+$/g, '')) {
-        alert('키워드를 입력해주세요!');
-        return false;
-    }
+//     if (!keyword.replace(/^\s+|\s+$/g, '')) {
+//         alert('키워드를 입력해주세요!');
+//         return false;
+//     }
 
     // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
     // ps.keywordSearch( "구월동 네네치킨", placesSearchCB); 
-}
+// }
+// placesSearchCB()
+// // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
+// // 검색이 완료되면 데이터를 이용하여 각종 정보를 웹사이트에 표시합니다.
+// function placesSearchCB(data, status, pagination) {
+    // if (status === kakao.maps.services.Status.OK) {
 
-// 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
-// 검색이 완료되면 데이터를 이용하여 각종 정보를 웹사이트에 표시합니다.
+//         // 정상적으로 검색이 완료됐으면
+//         // 검색 목록과 마커를 표출합니다
+        // displayPlaces(data);
+//         // console.log(data);
+
+//         searchResult = data;
+
+//         console.log(searchResult);
+
+//         // 페이지 번호를 표출합니다
+        // displayPagination(pagination);
+        // console.log(pagination);
+
+//     // } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
+
+//     //     alert('검색 결과가 존재하지 않습니다.');
+//     //     return;
+
+//     // } else if (status === kakao.maps.services.Status.ERROR) {
+
+//     //     alert('검색 결과 중 오류가 발생했습니다.');
+//     //     return;
+
+    // }
+// }
+
+// async function makeStoreList() {
+    
+//     console.log(searchResult)
+        
+//     const locationStore = document.querySelector(".location_store_sec")
+//     const locationStoreCon = locationStore.firstElementChild;
+   
+//     const locationStoreName = document.createElement('h2')
+//     const locationSotreNameText = document.createTextNode('구월동 근처매장');
+//     locationStoreName.appendChild(locationSotreNameText);
+//     locationStoreCon.appendChild(locationStoreName)
+
+
+//     const slideContainer = document.createElement('div');
+//     slideContainer.classList.add('slide_container')
+//     locationStoreCon.appendChild(slideContainer)
+
+//     const locationStoreUl = document.createElement('ul');
+//     locationStoreUl.classList.add('location_store_ul')
+//     slideContainer.appendChild(locationStoreUl);
+
+//     for(let i = 0; i < searchResult.length; i++) {
+//         const storeList = document.createElement("li") 
+//         storeList.classList.add('location_store_li')
+//         const aTag = document.createElement('a')
+//         aTag.setAttribute("href", "#");
+//         storeList.appendChild(aTag)
+        
+//         const divImg = document.createElement('div')
+//         divImg.classList.add('nene_store_img')
+//         aTag.appendChild(divImg)
+//         const imgFigure = document.createElement('figure');
+//         divImg.appendChild(imgFigure);
+
+//         const neneImg = document.createElement('img')
+//         neneImg.setAttribute("src", "nene/img/neneLogo.png")
+//         neneImg.setAttribute("alt", "네네로고")
+
+//         imgFigure.appendChild(neneImg);
+//         const locationPTag = document.createElement('p')
+//         const locationPTagText = document.createTextNode(searchResult[i].place_name)
+        
+//         locationPTag.appendChild(locationPTagText)
+//         imgFigure.appendChild(locationPTag);
+
+//         const informationPTag = document.createElement('p')
+//         const informationPTagText = document.createTextNode(searchResult[i].place_name);
+        
+//         informationPTag.appendChild(informationPTagText);
+//         aTag.appendChild(informationPTag)
+
+//         const storeNumber = document.createElement('p')
+//         const storeNumberPTag = document.createTextNode(searchResult[i].phone)
+
+//         storeNumber.appendChild(storeNumberPTag)
+//         aTag.appendChild(storeNumber)
+
+//         const addressPTag = document.createElement('p')
+//         const addressPTagText = document.createTextNode(searchResult[i].address_name);
+
+//         addressPTag.appendChild(addressPTagText)
+//         aTag.appendChild(addressPTagText)
+
+
+//         locationStoreUl.appendChild(storeList);
+//     }
+//     // console.log(locationStore)
+// }
+
+////////////////////////////////////////////////////////
+
+ps.keywordSearch( "구월동 네네치킨", placesSearchCB); 
+
 function placesSearchCB(data, status, pagination) {
     if (status === kakao.maps.services.Status.OK) {
 
-        // 정상적으로 검색이 완료됐으면
-        // 검색 목록과 마커를 표출합니다
+//         // 정상적으로 검색이 완료됐으면
+//         // 검색 목록과 마커를 표출합니다
         displayPlaces(data);
-        // console.log(data);
+        console.log(data);
 
-        searchResult = data;
+        const locationStore = document.querySelector(".location_store_sec")
+        const locationStoreCon = locationStore.firstElementChild;
 
-        console.log(searchResult);
+        const locationStoreName = document.createElement('h2')
+        const locationSotreNameText = document.createTextNode('구월동 근처매장');
+        locationStoreName.appendChild(locationSotreNameText);
+        locationStoreCon.appendChild(locationStoreName)
 
-        // 페이지 번호를 표출합니다
+
+        const slideContainer = document.createElement('div');
+        slideContainer.classList.add('slide_container')
+        locationStoreCon.appendChild(slideContainer)
+
+        const locationStoreUl = document.createElement('ul');
+        locationStoreUl.classList.add('location_store_ul')
+        slideContainer.appendChild(locationStoreUl);
+
+        for(let i = 0; i < data.length; i++) {
+            const storeList = document.createElement("li") 
+            storeList.classList.add('location_store_li')
+            const aTag = document.createElement('a')
+            aTag.setAttribute("href", "#");
+            storeList.appendChild(aTag)
+            
+            const divImg = document.createElement('div')
+            divImg.classList.add('nene_store_img')
+            aTag.appendChild(divImg)
+            const imgFigure = document.createElement('figure');
+            divImg.appendChild(imgFigure);
+
+            const neneImg = document.createElement('img')
+            neneImg.setAttribute("src", "nene/img/neneLogo.png")
+            neneImg.setAttribute("alt", "네네로고")
+
+            imgFigure.appendChild(neneImg);
+            const locationPTag = document.createElement('p')
+            const locationPTagText = document.createTextNode(data[i].place_name)
+            
+            locationPTag.appendChild(locationPTagText)
+            imgFigure.appendChild(locationPTag);
+
+            const informationPTag = document.createElement('p')
+            const informationPTagText = document.createTextNode(data[i].place_name);
+            
+            informationPTag.appendChild(informationPTagText);
+            aTag.appendChild(informationPTag)
+
+            const storeNumber = document.createElement('p')
+            const storeNumberPTag = document.createTextNode(data[i].phone)
+
+            storeNumber.appendChild(storeNumberPTag)
+            aTag.appendChild(storeNumber)
+
+            const addressPTag = document.createElement('p')
+            const addressPTagText = document.createTextNode(data[i].address_name);
+
+            addressPTag.appendChild(addressPTagText)
+            aTag.appendChild(addressPTagText)
+
+
+            locationStoreUl.appendChild(storeList);
+    }
+//         searchResult = data;
+
+//         console.log(searchResult);
+
+//         // 페이지 번호를 표출합니다
         // displayPagination(pagination);
+        // console.log(pagination);
 
-    // } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
+//     // } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
 
-    //     alert('검색 결과가 존재하지 않습니다.');
-    //     return;
+//     //     alert('검색 결과가 존재하지 않습니다.');
+//     //     return;
 
-    // } else if (status === kakao.maps.services.Status.ERROR) {
+//     // } else if (status === kakao.maps.services.Status.ERROR) {
 
-    //     alert('검색 결과 중 오류가 발생했습니다.');
-    //     return;
+//     //     alert('검색 결과 중 오류가 발생했습니다.');
+//     //     return;
 
     }
 }
 
-async function makeStoreList() {
-    
-    console.log(searchResult)
-        
-    const locationStore = document.querySelector(".location_store_sec")
-    const locationStoreCon = locationStore.firstElementChild;
-   
-    const locationStoreName = document.createElement('h2')
-    const locationSotreNameText = document.createTextNode('구월동 근처매장');
-    locationStoreName.appendChild(locationSotreNameText);
-    locationStoreCon.appendChild(locationStoreName)
 
 
-    const slideContainer = document.createElement('div');
-    slideContainer.classList.add('slide_container')
-    locationStoreCon.appendChild(slideContainer)
-
-    const locationStoreUl = document.createElement('ul');
-    locationStoreUl.classList.add('location_store_ul')
-    slideContainer.appendChild(locationStoreUl);
-
-    for(let i = 0; i < searchResult.length; i++) {
-        const storeList = document.createElement("li") 
-        storeList.classList.add('location_store_li')
-        const aTag = document.createElement('a')
-        aTag.setAttribute("href", "#");
-        storeList.appendChild(aTag)
-        
-        const divImg = document.createElement('div')
-        divImg.classList.add('nene_store_img')
-        aTag.appendChild(divImg)
-        const imgFigure = document.createElement('figure');
-        divImg.appendChild(imgFigure);
-
-        const neneImg = document.createElement('img')
-        neneImg.setAttribute("src", "nene/img/neneLogo.png")
-        neneImg.setAttribute("alt", "네네로고")
-
-        imgFigure.appendChild(neneImg);
-        const locationPTag = document.createElement('p')
-        const locationPTagText = document.createTextNode(searchResult[i].place_name)
-        
-        locationPTag.appendChild(locationPTagText)
-        imgFigure.appendChild(locationPTag);
-
-        const informationPTag = document.createElement('p')
-        const informationPTagText = document.createTextNode(searchResult[i].place_name);
-        
-        informationPTag.appendChild(informationPTagText);
-        aTag.appendChild(informationPTag)
-
-        const storeNumber = document.createElement('p')
-        const storeNumberPTag = document.createTextNode(searchResult[i].phone)
-
-        storeNumber.appendChild(storeNumberPTag)
-        aTag.appendChild(storeNumber)
-
-        const addressPTag = document.createElement('p')
-        const addressPTagText = document.createTextNode(searchResult[i].address_name);
-
-        addressPTag.appendChild(addressPTagText)
-        aTag.appendChild(addressPTagText)
 
 
-        locationStoreUl.appendChild(storeList);
-    }
-    console.log(locationStore)
-}
+
+
 
 // 검색 결과 목록과 마커를 표출하는 함수입니다
 function displayPlaces(places) {
