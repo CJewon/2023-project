@@ -17,7 +17,23 @@ var ps = new kakao.maps.services.Places();
 var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 
 // 키워드로 장소를 검색합니다
-ps.keywordSearch( "구월동 네네치킨", placesSearchCB); 
+
+let searchResult = [];
+
+
+makeContent()
+async function makeContent() {
+
+     await ps.keywordSearch( "구월동 네네치킨", placesSearchCB); 
+     await makeStoreList();
+    test();    
+}
+
+function test() {
+    const a = document.querySelector('.slide_container')
+    console.log(a)
+
+}
 // searchPlaces();
 
 // 키워드 검색을 요청하는 함수입니다
@@ -42,64 +58,11 @@ function placesSearchCB(data, status, pagination) {
         // 정상적으로 검색이 완료됐으면
         // 검색 목록과 마커를 표출합니다
         displayPlaces(data);
-        console.log(data);
-        
-        const locationStore = document.querySelector(".location_store_sec")
-        const locationStoreCon = locationStore.firstElementChild;
-        const locationStoreUl = document.createElement('ul');
-        locationStoreUl.classList.add('location_store_ul')
-        locationStoreCon.appendChild(locationStoreUl);
+        // console.log(data);
 
-        for(let i = 0; i < data.length; i++) {
-            const storeList = document.createElement("li") 
-            storeList.classList.add('location_store_li')
-            const aTag = document.createElement('a')
-            aTag.setAttribute("href", "#");
-            storeList.appendChild(aTag)
-            
-            const divImg = document.createElement('div')
-            divImg.classList.add('nene_store_img')
-            aTag.appendChild(divImg)
-            const imgFigure = document.createElement('figure');
-            divImg.appendChild(imgFigure);
+        searchResult = data;
 
-            const neneImg = document.createElement('img')
-            neneImg.setAttribute("src", "nene/img/neneLogo.png")
-            neneImg.setAttribute("alt", "네네로고")
-
-            imgFigure.appendChild(neneImg);
-            const locationPTag = document.createElement('p')
-            const locationPTagText = document.createTextNode(data[i].place_name)
-            
-            locationPTag.appendChild(locationPTagText)
-            imgFigure.appendChild(locationPTag);
-
-            const informationPTag = document.createElement('p')
-            const informationPTagText = document.createTextNode(data[i].place_name);
-            
-            informationPTag.appendChild(informationPTagText);
-            aTag.appendChild(informationPTag)
-
-            const storeNumber = document.createElement('p')
-            const storeNumberPTag = document.createTextNode(data[i].phone)
-
-            storeNumber.appendChild(storeNumberPTag)
-            aTag.appendChild(storeNumber)
-
-            const addressPTag = document.createElement('p')
-            const addressPTagText = document.createTextNode(data[i].address_name);
-
-            addressPTag.appendChild(addressPTagText)
-            aTag.appendChild(addressPTagText)
-
-
-            locationStoreUl.appendChild(storeList);
-        }
-        console.log(locationStore)
-
-        
-        
-        
+        console.log(searchResult);
 
         // 페이지 번호를 표출합니다
         // displayPagination(pagination);
@@ -115,6 +78,75 @@ function placesSearchCB(data, status, pagination) {
     //     return;
 
     }
+}
+
+async function makeStoreList() {
+    
+    console.log(searchResult)
+        
+    const locationStore = document.querySelector(".location_store_sec")
+    const locationStoreCon = locationStore.firstElementChild;
+   
+    const locationStoreName = document.createElement('h2')
+    const locationSotreNameText = document.createTextNode('구월동 근처매장');
+    locationStoreName.appendChild(locationSotreNameText);
+    locationStoreCon.appendChild(locationStoreName)
+
+
+    const slideContainer = document.createElement('div');
+    slideContainer.classList.add('slide_container')
+    locationStoreCon.appendChild(slideContainer)
+
+    const locationStoreUl = document.createElement('ul');
+    locationStoreUl.classList.add('location_store_ul')
+    slideContainer.appendChild(locationStoreUl);
+
+    for(let i = 0; i < searchResult.length; i++) {
+        const storeList = document.createElement("li") 
+        storeList.classList.add('location_store_li')
+        const aTag = document.createElement('a')
+        aTag.setAttribute("href", "#");
+        storeList.appendChild(aTag)
+        
+        const divImg = document.createElement('div')
+        divImg.classList.add('nene_store_img')
+        aTag.appendChild(divImg)
+        const imgFigure = document.createElement('figure');
+        divImg.appendChild(imgFigure);
+
+        const neneImg = document.createElement('img')
+        neneImg.setAttribute("src", "nene/img/neneLogo.png")
+        neneImg.setAttribute("alt", "네네로고")
+
+        imgFigure.appendChild(neneImg);
+        const locationPTag = document.createElement('p')
+        const locationPTagText = document.createTextNode(searchResult[i].place_name)
+        
+        locationPTag.appendChild(locationPTagText)
+        imgFigure.appendChild(locationPTag);
+
+        const informationPTag = document.createElement('p')
+        const informationPTagText = document.createTextNode(searchResult[i].place_name);
+        
+        informationPTag.appendChild(informationPTagText);
+        aTag.appendChild(informationPTag)
+
+        const storeNumber = document.createElement('p')
+        const storeNumberPTag = document.createTextNode(searchResult[i].phone)
+
+        storeNumber.appendChild(storeNumberPTag)
+        aTag.appendChild(storeNumber)
+
+        const addressPTag = document.createElement('p')
+        const addressPTagText = document.createTextNode(searchResult[i].address_name);
+
+        addressPTag.appendChild(addressPTagText)
+        aTag.appendChild(addressPTagText)
+
+
+        locationStoreUl.appendChild(storeList);
+    }
+    console.log(locationStore)
 }
 
 // 검색 결과 목록과 마커를 표출하는 함수입니다
@@ -236,179 +268,7 @@ function removeAllChildNods(el) {
     }
 }
 
-function createSlide(slider, slideSpeed, viewContentsCount, flexGap) {
-
-
-    let index = 0 + viewContentsCount;
-    let moveCheck = true;
-    const gap = viewContentsCount === 1 ? 0 : flexGap;
-    const contents = [];
-
-
-    slider.style.position = 'relative';
-    for (let i = 0; i < slider.childElementCount; i++) {
-        contents[i] = slider.children[i];
-        contents[i].classList.add('content');
-    }
-    // const sliderView = makeNode('div', 'slider-view');
-    const sliderView = document.createElement('div');
-    sliderView.classList.add('slider-view');
-
-    const contentsWrapper = makeNode('div', 'contents-wrapper');
-    const buttons = makeNode('div', 'buttons');
-    const slidePrev = makeNode('button', 'slide-prev');
-    const slideNext = makeNode('button', 'slide-next');
-    slidePrev.addEventListener('click', prev)
-
-    function prev() {
-        if (moveCheck) {
-            moveCheck = false;
-
-            index--;
-
-            위치적용(slideSpeed);
-            setTimeout(() => {
-                if (index < viewContentsCount) {
-                    index = contents.length + viewContentsCount - 1;
-                    위치적용(0);
-                }
-                moveCheck = true;
-            }, slideSpeed);
-        }
-
-    }
-
-    slideNext.addEventListener('click', next)
-
-    function next() {
-        if (moveCheck) {
-            moveCheck = false;
-            index++;
-            위치적용(slideSpeed);
-            setTimeout(() => {
-                if (index > contents.length + viewContentsCount - 1) {
-                    index = viewContentsCount;
-                    위치적용(0)
-                }
-                moveCheck = true;
-            }, slideSpeed);
-        }
-    }
-
-
-    // setInterval(() => {
-    //     next();
-    // }, 5000);
-
-
-    slider.appendChild(sliderView);
-    sliderView.appendChild(contentsWrapper);
-
-    for (let i = 0; i < contents.length; i++) {
-        contentsWrapper.appendChild(contents[i]);
-    }
-
-    slider.appendChild(buttons);
-    // buttons.appendChild(slidePrev);
-    // buttons.appendChild(slideNext);
-    slidePrev.innerText = "이전";
-    slideNext.innerText = "다음";
-
-    const dotButtons = makeNode('div', 'dot-buttons');
-
-    //닷 버튼들 추가하기.
-    for (let i = 0; i < contents.length; i++) {
-        //4번 만들어서 각각 넣어야하기때문에 const dot 선언은 반복문 내부에서 해야한다.
-        const dot = makeNode('div', 'dot');
-        dotButtons.appendChild(dot);
-
-        dot.addEventListener('click', () => {
-            index = i + viewContentsCount;
-            위치적용(slideSpeed);
-        })
-    }
-    slider.appendChild(dotButtons);
-    let sliderWidth = slider.clientWidth;
-    const sliderHeight = slider.clientHeight;
-
-
-    let contentWidth;
-    사이즈지정();
-
-    window.addEventListener('resize', 사이즈지정);
-
-    function 사이즈지정() {
-        sliderWidth = slider.clientWidth;
-        contentWidth = (sliderWidth / viewContentsCount) - gap * (viewContentsCount - 1) / viewContentsCount;
-
-        for (let i = 0; i < contentsWrapper.childElementCount; i++) {
-            contentsWrapper.children[i].style.width = `${contentWidth}px`
-            contentsWrapper.children[i].style.height = `${sliderHeight}px`
-        }
-        위치적용();
-    }
-
-    contentsWrapper.style.gap = `${gap}px`
-
-    for (let i = contents.length - 1; i > contents.length - 1 - viewContentsCount; i--) {
-        const cloneBack = contents[i].cloneNode(true);
-        contentsWrapper.insertBefore(cloneBack, contentsWrapper.firstElementChild);
-    }
-
-    for (let i = 0; i < viewContentsCount; i++) {
-        const clonePront = contents[i].cloneNode(true);
-        contentsWrapper.appendChild(clonePront);
-    }
-
-
-    위치적용();
-
-
-
-
-
-    function makeNode(tagName, className) {
-        const node = document.createElement(tagName);
-        node.classList.add(className);
-
-        return node;
-    }
-
-    // function 위치적용(time) {
-
-    //     //원래는 0~3까지
-    //     //앞뒤로 1개가 늘어나면서 총 인덱스는 0~5까지가 되었고
-    //     //실제 슬라이더의 인덱스는 1~4까지가 되었다.
-
-    //     //dotButtons[4] 는 0~3까지의 범위를 가진다.
-    //     //index : 5
-    //     //viewCount : 1
-    //     //index-viewCount = 4
-    //     for (let i = 0; i < dotButtons.childElementCount; i++) {
-    //         dotButtons.children[i].classList.remove('active');
-    //     }
-    //     if (index < viewContentsCount) {
-    //         dotButtons.lastElementChild.classList.add('active');
-
-    //     } else if (index > contents.length + viewContentsCount - 1) {
-    //         dotButtons.firstElementChild.classList.add('active');
-    //     }
-    //     else {
-    //         dotButtons.children[index - viewContentsCount].classList.add('active');
-    //     }
-
-    //     contentsWrapper.style.transform = `translateX(-${index * (contentWidth + gap)}px)`
-    //     contentsWrapper.style.transition = `${time}ms`;
-    //     console.log(time);
-    // }
-
-    // window.addEventListener('mousewheel', (e) => {
-    //     console.log(e.deltaY);
-    //     if (e.deltaY > 0) {
-    //         next();
-    //     } else {
-    //         prev();
-    //     }
-    // })
-
+function createSlide() {
+    const moveSlide = document.querySelector('.slide_container')
+    console.log(moveSlide)
 }
