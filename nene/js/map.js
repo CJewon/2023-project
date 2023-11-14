@@ -226,10 +226,18 @@ function placesSearchCB(data, status, pagination) {
     }
 //         searchResult = data;
         // index = data.length
-        setTimeout(() => {
-            slideContainer.style.transform = `translateX(-${317 * index}px)`
-        }, 500);
+        const slideState = true;
+        const slideLength = data.length
+        console.log(slideLength);
+        if(slideState) {
+            slideState = false;
 
+            setTimeout(() => {
+                slideContainer.style.transform = `translateX(-${317 * index}px)`                
+            }, 500);
+
+            slideState = true
+        }
 //         // 페이지 번호를 표출합니다
         // displayPagination(pagination);
         // console.log(pagination);
@@ -377,3 +385,6 @@ function createSlide() {
     const moveSlide = document.querySelector('.slide_container')
     console.log(moveSlide)
 }
+
+
+// 1. 
