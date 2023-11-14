@@ -225,8 +225,10 @@ function placesSearchCB(data, status, pagination) {
             locationStoreUl.appendChild(storeList);
     }
 //         searchResult = data;
-
-//         console.log(searchResult);
+        // index = data.length
+        setTimeout(() => {
+            slideContainer.style.transform = `translateX(-${317 * index}px)`
+        }, 500);
 
 //         // 페이지 번호를 표출합니다
         // displayPagination(pagination);
