@@ -252,12 +252,34 @@ h3 {
   align-items: center;
   padding-top: 200px;
   gap: 96px;
+  overflow: hidden;
 }
 
 .slide_container {
+  display: flex;
+  /* gap: 6px; */
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.slide_container > img {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  z-index: 10
+  ;
+}
+
+.slide_container > img:first-child {
+  right: calc( 100% + 6px);
+}
+.slide_container > img:last-child {
+  left: calc( 100% + 6px);
+}
+
+.make_slide {
   max-width: 1216px;
-  transition: 1s;
-  transform: translateX(calc(-317px * 0));
 }
 
 h2 {
@@ -268,6 +290,11 @@ h2 {
 .location_store_ul {
   display: flex;
   gap: 52px;
+  transition: 1s;
+}
+
+.hidden {
+  display: none;
 }
 
 
@@ -296,6 +323,9 @@ h2 {
   white-space: nowrap;
 }
 
+.location_store_li {
+  transition: 1s;
+}
 
 .location_store_li > a {
   display: flex;

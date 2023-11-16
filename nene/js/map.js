@@ -170,14 +170,30 @@ function placesSearchCB(data, status, pagination) {
         locationStoreName.appendChild(locationSotreNameText);
         locationStoreCon.appendChild(locationStoreName)
 
-
-        const slideContainer = document.createElement('div');
+        const slideContainer = document.createElement('div')
         slideContainer.classList.add('slide_container')
         locationStoreCon.appendChild(slideContainer)
 
+        const previousButton = document.createElement('img')
+        previousButton.setAttribute('src' ,'nene/img/이전버튼.png')
+        previousButton.setAttribute('alt', '이전버튼')
+        slideContainer.appendChild(previousButton)
+        previousButton.classList.add('hidden')
+        
+        const makeSlide = document.createElement('div');
+        makeSlide.classList.add('make_slide')
+        slideContainer.appendChild(makeSlide)
+        
+
+        const nextButton = document.createElement('img')
+        nextButton.setAttribute('src' ,'nene/img/다음버튼.png')
+        nextButton.setAttribute('alt', '다음버튼')
+        slideContainer.appendChild(nextButton);
+
         const locationStoreUl = document.createElement('ul');
         locationStoreUl.classList.add('location_store_ul')
-        slideContainer.appendChild(locationStoreUl);
+        makeSlide.appendChild(locationStoreUl);
+
 
         for(let i = 0; i < data.length; i++) {
             const storeList = document.createElement("li") 
@@ -224,20 +240,86 @@ function placesSearchCB(data, status, pagination) {
 
             locationStoreUl.appendChild(storeList);
     }
+
+        
+
 //         searchResult = data;
         // index = data.length
         const slideState = true;
         const slideLength = data.length
         console.log(slideLength);
-        if(slideState) {
-            slideState = false;
 
-            setTimeout(() => {
-                slideContainer.style.transform = `translateX(-${317 * index}px)`                
-            }, 500);
+        let index = 0 ;
+        const maxSlide = locationStoreUl.childElementCount;
+        const slideView = 4;
+        const maxIndex = maxSlide-slideView;
 
-            slideState = true
+        // 이전버튼에 이벤트리스너 추가
+ 
+            previousButton.addEventListener('click', previousButtonEvent)
+
+        
+        //위치적용
+        // 만약 index가 0에 도달했다?
+        // 이전버튼 숨겨
+
+
+        // 다음버튼에 이벤트리스너 추가
+
+      
+            nextButton.addEventListener('click',nextButtonEvent)
+
+            slideApply(); 
+        function previousButtonEvent() {
+            index--;
+            slideApply();                
+            nextButton.classList.remove('hidden')
+            if(index === 0) {
+                previousButton.classList.add('hidden')
+            }
         }
+        function nextButtonEvent() {
+            index++
+                slideApply();    // 위치적용        
+                previousButton.classList.remove('hidden')
+                if(index === maxIndex) {
+                    nextButton.classList.add('hidden')
+                }
+        }
+
+
+        function slideApply() {
+            locationStoreUl.style.transform = `translateX(-${317 * index}px)`
+            for(let i = 0 ; i < locationStoreUl.childElementCount ; i ++){
+                locationStoreUl.children[i].style.opacity = `0.2`;
+            }
+            
+            for(let i = index ; i < index+4 ; i ++) {
+                locationStoreUl.children[i].style.opacity = `1`;
+                
+            }
+        }
+
+        // index++
+
+        // slideContainer.style.transform = `translateX(-${317 * index}px)`
+        // 위치적용
+        // 만약 index가 maxIndex에 도달했다?
+        // 다음버튼 숨겨
+
+
+
+        // if(slideState) {
+        //     slideState = false;
+
+        //     setTimeout(() => {
+        //         slideContainer.style.transform = `translateX(-${317 * index}px)`                
+        //     }, 500);
+
+        //     slideState = true
+        // }
+
+
 //         // 페이지 번호를 표출합니다
         // displayPagination(pagination);
         // console.log(pagination);
