@@ -17,8 +17,7 @@ a {
 
 section {
   width: 100%;
-  height: calc(100vh - 1px);
-  border-bottom: 1px solid #232323;
+  height: 100vh;
 }
 
 .acc-hide-text {
