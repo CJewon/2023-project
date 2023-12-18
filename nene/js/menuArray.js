@@ -110,7 +110,7 @@ for(let j = 0 ; j <sectionSlider.length;j++){
     }
     
     const pTag = document.createElement('p');
-    const pTagText = document.createTextNode(`${menuContainerUl.children[i].firstElementChild.firstElementChild.firstElementChild.getAttribute('alt')}`);
+    const pTagText = document.createTextNode(`${menuContainerUl.children[i].querySelector('h3').firstElementChild.getAttribute('alt')}`);
     // console.log(pTagText);
     pTag.appendChild(pTagText);
     const divTag = document.createElement('div');
