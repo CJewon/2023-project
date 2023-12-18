@@ -60,11 +60,7 @@ for(let j = 0 ; j <sectionSlider.length;j++){
   const aButtonContainer = sectionSlider[j].lastElementChild.lastElementChild;
 
   const neneCar = sectionSlider[j].querySelector('.nene_char');
-  // for(let k = 0 ; k < menuContainer.childElementCount; k++) {
-  //   console.log(menuContainerUl[k].childElementCount)
-
-  // }
-  // console.log(menuContainer.length)
+ 
   let index = 0 ;
 
   let 네네카이전좌표 = 0;
