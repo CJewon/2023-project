@@ -92,7 +92,7 @@ for(let j = 0 ; j <sectionSlider.length;j++){
   function slideControl() {
     if(slideState) {
       slideState === false;
-       // 해당 슬라이드 위치로 이등하기
+       // 해당 슬라이드 위치로 이동하기
       slideState === true;
     }
   }
