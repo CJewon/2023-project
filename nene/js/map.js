@@ -152,7 +152,7 @@ var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 
 ////////////////////////////////////////////////////////
 
-ps.keywordSearch( "구월동 네네치킨", placesSearchCB); 
+ps.keywordSearch( "구월동 네네치킨", placesSearchCB); // 구월동 네네치킨이라는 검색어를 기본값으로 설정하고 검색한다.
 
 function placesSearchCB(data, status, pagination) {
     if (status === kakao.maps.services.Status.OK) {
@@ -160,7 +160,6 @@ function placesSearchCB(data, status, pagination) {
 //         // 정상적으로 검색이 완료됐으면
 //         // 검색 목록과 마커를 표출합니다
         displayPlaces(data);
-        console.log(data);
 
         const locationStore = document.querySelector(".location_store_sec")
         const locationStoreCon = locationStore.firstElementChild;
@@ -244,10 +243,10 @@ function placesSearchCB(data, status, pagination) {
         
 
 //         searchResult = data;
-        // index = data.length
+    
         const slideState = true;
         const slideLength = data.length
-        console.log(slideLength);
+      
 
         let index = 0 ;
         const maxSlide = locationStoreUl.childElementCount;
