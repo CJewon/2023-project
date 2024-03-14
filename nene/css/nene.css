@@ -48,6 +48,8 @@ header {
   justify-content: space-between;
   align-items: center;
   gap: 128px;
+  padding: 0 32px;
+  box-sizing: border-box;
 }
 
 .header_menu_ul {
@@ -63,6 +65,10 @@ header {
 .login_list > a {
   color: #231f20;
   font-size: 20px;
+}
+
+.login-icon {
+  display: none;
 }
 
 .new_menu,
@@ -100,7 +106,6 @@ header {
 .new_menu_con > figure > img,
 .popular_menu_con > figure > img,
 .recommended_menu_con > figure > img{
-  width: 670px;
   height: 100%;
 }
 
@@ -405,11 +410,10 @@ h2 {
 }
 
 .footer_con {
-  /* height: 105px; */
   background-color: #2b2b2b;
-  padding: 0 352px;
+  padding: 0 32px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -426,11 +430,10 @@ h2 {
 
 .company_explain_con {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   background-color: #484747;
-  padding: 20px 352px;
-  /* height: 255px; */
+  padding: 20px 32px
 }
 
 .company_information {
@@ -483,4 +486,30 @@ h2 {
 #pagination .on {font-weight: bold; cursor: default;color:#777;}
 .map_wrap {
   display: none;
+}
+
+@media screen and (max-width : 1365px){
+  .header_menu_con {
+    display: none;
+  }
+
+  .login_list {
+    display: none;
+  }
+
+  .login-icon {
+    display: block;
+  }
+
+
+  .menu_title_con {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-60%, -60%);
+  }
+}
+
+@media screen and (max-width : 799px) {
+  
 }
