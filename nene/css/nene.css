@@ -364,7 +364,7 @@ h2 {
 .sns_design_con {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* gap: 120px; */
 }
 
 .sns_design_facebook,
@@ -402,6 +402,7 @@ h2 {
 .text_con {
   background-color: #a5a5a5;
   line-height: 1.5;
+  height: 123px;
 }
 
 .facebook_contents_con > figure:last-child,
@@ -510,16 +511,43 @@ h2 {
     transform: translate(-60%, -60%);
   }
 
+  .nene_title > h2 {
+    font-size: 40px;
+  }
+
+  .nene_title img {
+    width: 36px;
+    height: 36px;
+  }
+
   .sns_design_facebook,
   .sns_design_instagram {
     width: 332px;
   }
-
-  .text_con {
-    
+  
+  .sns_design_con {
+    justify-content: space-around;
   }
 
+  
+  .text_con {
+    height: 120px;
+    font-size: 14px;
+  }
+
+  .footer_con img {
+    width: 200px;
+  }
+
+  .company_information {
+    font-size: 14px;
+  }
+
+
 }
+
+
+
 @media screen and (max-width : 799px) {
   
 }
