@@ -1,29 +1,28 @@
-menuTitle();
 async function menuTitle() {
-  // json 사용할때 기본형태 !! *** 데이터베이스 불러오기
-  let dbContainer = [];
-  fetch("json/new.json")
-    .then((res) => res.json())
-    .then((data) => {
-      dbContainer.push(data);
-      fetch("json/popular.json")
-        .then((res) => res.json())
-        .then((data) => {
-          dbContainer.push(data);
-          fetch("json/recommend.json")
-            .then((res) => res.json())
-            .then((data) => {
-              dbContainer.push(data);
-              함수();
-              async function 함수() {
-                await makeContent();
-                await menuArray();
-              }
-            });
-        });
-    });
+  try {
+    // json 사용할때 기본형태 !! *** 데이터베이스 불러오기
+    const dbContainer = [];
 
-  function makeContent() {
+    // 각 파일의 데이터를 비동기로 가져옵니다.
+    const newMenu = await fetch("json/new.json").then((res) => res.json());
+    const popularMenu = await fetch("json/popular.json").then((res) =>
+      res.json()
+    );
+    const recommendMenu = await fetch("json/recommend.json").then((res) =>
+      res.json()
+    );
+
+    // 데이터를 dbContainer에 추가합니다.
+    dbContainer.push(newMenu, popularMenu, recommendMenu);
+
+    // 데이터가 준비되었으면 콘텐츠 생성 및 메뉴 배열 함수를 호출합니다.
+    await makeContent(dbContainer);
+    await menuArray();
+  } catch (error) {
+    console.error("메뉴 데이터를 불러오는 과정에서 에러발생 : ", error);
+  }
+
+  function makeContent(dbContainer) {
     const conName = [
       "new_menu_con",
       "popular_menu_con",
@@ -34,7 +33,6 @@ async function menuTitle() {
     dbContainer.map((db, index) => {
       for (let i = 0; i < db.length; i++) {
         const contents = document.createElement("li");
-
         contents.classList.add(conName[index]);
 
         const divMenuTitleCon = document.createElement("div");
@@ -61,8 +59,8 @@ async function menuTitle() {
           const badgeLi = document.createElement("li");
           badgeLi.classList.add("menu_style_li");
           const text = document.createTextNode(db[i].뱃지[j]);
-          menuStyleUl.appendChild(badgeLi);
           badgeLi.appendChild(text);
+          menuStyleUl.appendChild(badgeLi);
         }
 
         const aButtonTag = document.createElement("a");
@@ -71,9 +69,9 @@ async function menuTitle() {
         aButtonDiv.classList.add("button_con");
         const aButtonPTag = document.createElement("p");
         const aButtonText = document.createTextNode("바로 주문하기");
-        aButtonTag.appendChild(aButtonDiv);
-        aButtonDiv.appendChild(aButtonPTag);
         aButtonPTag.appendChild(aButtonText);
+        aButtonDiv.appendChild(aButtonPTag);
+        aButtonTag.appendChild(aButtonDiv);
 
         const imgContainer = document.createElement("figure");
         const img = document.createElement("img");
@@ -93,3 +91,5 @@ async function menuTitle() {
     });
   }
 }
+
+menuTitle();
