@@ -41,7 +41,7 @@ window.addEventListener(
           if (index < 0) {
             index = 0;
           }
-          console.log(index);
+          
         }
       } else if ((window.scrollY = sections.length * window.innerHeight)) {
         if (e.deltaY > 0) {
