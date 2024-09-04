@@ -99,7 +99,7 @@ header {
   position: relative;
   padding-top: 112px;
   flex-shrink: 0;
-  width: 100%;
+  width: 100vw;
   gap: 64px;
   height: 70vh;
 }
