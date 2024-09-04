@@ -71,3 +71,30 @@ header {
 .login-icon {
   display: none;
 }
+
+.new_menu,
+.popular_menu,
+.recommended_menu {
+  background-color: #f8ba03;
+  position: relative;
+}
+
+.menu_con {
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.menu_con_ul {
+  display: flex;
+  flex-direction: row;
+  transition: 1s;
+}
+
+.menu_con_ul > li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+  /* height: 70vh; */
+}
