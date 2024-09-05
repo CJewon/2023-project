@@ -598,5 +598,24 @@ h2 {
 }
 
 @media screen and (min-width: 800px) and (max-width: 1365px) {
-  
+  .header_menu_ul {
+    display: none;
+  }
+
+  .login_list {
+    display: none;
+  }
+
+  .login-icon {
+    display: block;
+  }
+
+  .new_menu_con,
+  .recommended_menu_con {
+    flex-direction: column-reverse;
+  }
+
+  .popular_menu_con {
+    flex-direction: column;
+  }
 }
