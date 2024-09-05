@@ -107,7 +107,6 @@ header {
 .new_menu_con > figure > img,
 .popular_menu_con > figure > img,
 .recommended_menu_con > figure > img {
-  width: 100%;
   height: auto;
   object-fit: cover;
 }
@@ -191,8 +190,8 @@ header {
   position: relative;
   transition: 1s;
   transform: translateX(-50%);
-  width: 67px;
-  height: 67px;
+  width: 76px;
+  height: 65px;
   left: 0%;
 }
 
@@ -613,9 +612,36 @@ h2 {
   .new_menu_con,
   .recommended_menu_con {
     flex-direction: column-reverse;
+    align-items: baseline;
+    gap: 0px;
   }
 
   .popular_menu_con {
     flex-direction: column;
+  }
+
+  .menu_con_ul > li {
+    position: relative;
+  }
+
+  .menu_title_con {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 35%;
+    top: 80%;
+    z-index: 1;
+    width: 500px;
+    gap: 12px;
+  }
+
+  .menu_con_ul > li > figure {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 45%;
+  }
+
+  .menu_title_con > :nth-child(2) {
+    font-size: 24px;
   }
 }
