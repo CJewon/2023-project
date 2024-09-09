@@ -652,7 +652,6 @@ h2 {
   }
 
   .location_store_ul {
-    flex-direction: row-reverse;
     flex-wrap: wrap;
 
     box-sizing: border-box;
