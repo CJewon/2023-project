@@ -344,7 +344,7 @@ h2 {
 .nene_title {
   display: flex;
   gap: 20px;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .nene_title > h2 {
@@ -653,7 +653,6 @@ h2 {
 
   .location_store_ul {
     flex-wrap: wrap;
-
     box-sizing: border-box;
     height: auto;
     gap: 20px;

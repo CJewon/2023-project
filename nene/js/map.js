@@ -120,13 +120,18 @@ function placesSearchCB(data, status, pagination) {
 
     // 슬라이드 적용 함수
     function slideApply() {
+      const width = window.innerWidth;
       locationStoreUl.style.transform = `translateX(-${317 * index}px)`;
       Array.from(locationStoreUl.children).forEach((child, i) => {
-        child.style.opacity = i >= index && i < index + slideView ? "1" : "0.2";
+        if (width >= 1366) {
+          child.style.opacity =
+            i >= index && i < index + slideView ? "1" : "0.2";
+        } else {
+          child.style.opacity = i >= index && i < index + slideView ? "1" : "0";
+        }
       });
     }
 
-    const width = window.innerWidth;
     slideApply(); // 초기 슬라이드 적용
   }
 }
