@@ -126,6 +126,7 @@ function placesSearchCB(data, status, pagination) {
       });
     }
 
+    const width = window.innerWidth;
     slideApply(); // 초기 슬라이드 적용
   }
 }
@@ -186,6 +187,8 @@ function removeMarker() {
 
 // 인포윈도우를 표시하는 함수입니다
 function displayInfowindow(marker, title) {
-  infowindow.setContent('<div style="padding:5px;font-size:12px;">' + title + '</div>');
+  infowindow.setContent(
+    '<div style="padding:5px;font-size:12px;">' + title + "</div>"
+  );
   infowindow.open(map, marker);
 }

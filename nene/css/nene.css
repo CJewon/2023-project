@@ -637,11 +637,28 @@ h2 {
   .menu_con_ul > li > figure {
     position: absolute;
     transform: translate(-50%, -50%);
-    left: 50%;
+    left: 45%;
     top: 45%;
   }
 
   .menu_title_con > :nth-child(2) {
     font-size: 24px;
+    color: aliceblue;
+  }
+
+  .location_store_con {
+    padding-top: 120px;
+    gap: 48px;
+  }
+
+  .location_store_ul {
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+
+    box-sizing: border-box;
+    height: auto;
+    gap: 20px;
+    justify-content: space-around;
+    align-items: center;
   }
 }
