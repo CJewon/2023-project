@@ -356,13 +356,16 @@ h2 {
 .sns_design_con {
   display: flex;
   justify-content: space-between;
+  gap: 24px;
 }
 
 .sns_design_facebook,
 .sns_design_instagram {
-  width: 392px;
+  max-width: 392px;
+  height: auto;
   background-color: #d9d9d9;
   border-radius: 18px;
+  box-sizing: border-box;
   position: relative;
 }
 
@@ -373,7 +376,7 @@ h2 {
 }
 
 .main-img-size {
-  width: 100%;
+  max-width: 100%;
 }
 
 .facebook_icon_con,
