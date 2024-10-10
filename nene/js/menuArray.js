@@ -38,9 +38,9 @@ function menuArray() {
 
     function slideControl() {
       if (slideState) {
-        slideState === false;
+        slideState = false;
         // 해당 슬라이드 위치로 이동하기
-        slideState === true;
+        slideState = true;
       }
     }
 
